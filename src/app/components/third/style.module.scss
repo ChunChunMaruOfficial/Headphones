@@ -1,0 +1,85 @@
+@use '../../mixin' as mixin;
+
+.parent {
+    position: relative;
+    width: fit-content;
+    margin: auto;
+
+    .top {
+        @include mixin.flex(center, center, column, nowrap, 27px);
+        margin-block: 330px 93px;
+
+        >h1 {
+            @include mixin.font(var(--white), var(--roboto), 100px, 900);
+        }
+
+        >h2 {
+            @include mixin.font(var(--white), var(--font-inclusive-sans), 50px);
+        }
+    }
+
+    .vectors {
+        position: relative;
+        width: max-content;
+        transform: translateX(-25px);
+
+        >img:nth-of-type(2) {
+            opacity: .7;
+            position: absolute;
+            top: 40px;
+            left: 25px;
+        }
+    }
+
+    .mainpng {
+        @include mixin.flex(center, center, column, nowrap, 27px);
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -45%);
+
+        >span>img:not(.arrow) {
+            transform: scaleX(-1)
+        }
+
+        >.arrow {
+            position: absolute;
+
+            &:nth-of-type(1) {
+                left: -80px;
+                bottom: 450px;
+            }
+
+            &:nth-of-type(2) {
+                right: -70px;
+                top: 200px
+            }
+        }
+
+        >button {
+            padding: 28px 68px;
+            border-radius: 100px;
+            background: rgba(255, 255, 255, 1);
+            @include mixin.font(var(--black), var(--roboto), 60px, 900);
+        }
+    }
+
+    >p {
+        @include mixin.font(var(--white), var(--font-inclusive-sans), 30px);
+        position: absolute;
+        max-width: 483px;
+
+        &:nth-of-type(1) {
+            text-align: left;
+            left: 190px;
+            top: 375px;
+        }
+
+        &:nth-of-type(2) {
+            text-align: right;
+            right: 242px;
+            top: 1137px;
+        }
+    }
+
+}
