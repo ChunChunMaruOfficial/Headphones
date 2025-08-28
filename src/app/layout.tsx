@@ -5,19 +5,19 @@ import "./globals.css";
 const jockeyOne = Jockey_One({
   variable: '--font-jockey-one',
   subsets: ['latin'],
-  weight: "400"
+  weight: "400",
 });
 
 const Robot = Roboto({
   variable: '--roboto',
   subsets: ['latin'],
-  weight: "400"
+  weight: ["400", "700", "900"]
 });
 
 const InclusiveSans = Inclusive_Sans({
   variable: '--font-inclusive-sans',
   subsets: ['latin'],
-  weight: "400"
+  weight: ["400", "700"]
 });
 
 

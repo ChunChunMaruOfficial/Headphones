@@ -24,7 +24,7 @@ export default function Second() {
                 <Image src={secondvectorcolor} alt="" />
                 <Image src={secondvectorwrapper} alt="" />
             </div>
-            <motion.div initial="hidden" whileInView="visible" className={styles.container}>
+            <motion.div viewport={{amount: 0.2, once: true}} initial="hidden" whileInView="visible" className={styles.container}>
                 {[...Array(3)].map((_, i) => (
                     <motion.div custom={i+1} variants={ShowAnimation} key={i}>
                         <h2>Adaptive Noise Cancellation</h2>

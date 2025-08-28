@@ -32,7 +32,7 @@ const HightAnimation = {
 
 export default function Third() {
     return (
-        <motion.div initial="hidden" whileInView="visible" className={styles.parent}>
+        <motion.div viewport={{amount: 0.2, once: true}} initial="hidden" whileInView="visible" className={styles.parent}>
             <span className={styles.top}>
                 <motion.h1 custom={1} variants={HightAnimation}>SOUND THAT YOU CAN SEE</motion.h1>
                 <motion.h2 custom={2} variants={HightAnimation}>Rotate to explore every detail</motion.h2>

@@ -29,10 +29,9 @@ const HightAnimation = {
     }
 }
 
-
 export default function Footer() {
     return (
-        <motion.div initial="hidden" whileInView="visible" className={styles.parent}>
+        <motion.div viewport={{amount: 0.2, once: true}} initial="hidden" whileInView="visible" className={styles.parent}>
             <motion.h1 variants={HightAnimation}>READY TO REDEFINITION YOUR BOUNDARIES?</motion.h1>
             <div className={styles.content}>
                 <Image width={1249} src={headphones2} alt='' />
