@@ -1,8 +1,14 @@
 .parent {
-    background-color: aquamarine;
+    background-color: rgb(0, 37, 25);
     width: 600px;
     height: 600px;
     position: relative;
+
+    >button{
+        position: absolute;
+        left: 300px;
+        z-index: 20;
+    }
 
     .particles {
         transition: .1s ease-in-out;
@@ -26,16 +32,33 @@
         &.isalive {
             animation: show 2s forwards ease-in-out;
         }
+        &.isdead {
+            animation: hide 2s forwards ease-in-out;
+        }
     }
 
 }
 
 @keyframes show {
     from {
+        border-radius: 100%;
         transform: translate(-50%, -50%) scale(0);
     }
 
     to {
+             border-radius: 0;
         transform: translate(-50%, -50%) scale(1);
+    }
+}
+@keyframes hide {
+    from {
+             border-radius: 0;
+        transform: translate(-50%, -50%) scale(1);
+    }
+
+    to {
+  
+        border-radius: 100%;
+        transform: translate(-50%, -50%) scale(0);
     }
 }

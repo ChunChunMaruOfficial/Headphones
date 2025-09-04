@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from 'framer-motion';
+
 import Image from "next/image";
 import styles from './style.module.scss'
 import secondvectorcolor from '../../assets/svg/secondvectorcolor.svg'
@@ -13,7 +14,7 @@ const ShowAnimation = {
     },
     visible: (custom: number) => ({
         opacity: 1,
-        transition: {delay: (custom * 0.4) + .3}
+        transition: { delay: (custom * 0.4) + .3 }
     }),
 }
 
@@ -24,12 +25,14 @@ export default function Second() {
                 <Image src={secondvectorcolor} alt="" />
                 <Image src={secondvectorwrapper} alt="" />
             </div>
-            <motion.div viewport={{amount: 0.2, once: true}} initial="hidden" whileInView="visible" className={styles.container}>
+            <motion.div viewport={{ amount: 0.2, once: true }} initial="hidden" whileInView="visible" className={styles.container}>
                 {[...Array(3)].map((_, i) => (
-                    <motion.div custom={i+1} variants={ShowAnimation} key={i}>
-                        <h2>Adaptive Noise Cancellation</h2>
-                        <p>Smart silence</p>
-                        <p>Microphones analyze ambient noise 1,000 times per second. The world around you quiets down when you need to concentrate, and returns gently for safety outdoors.</p>
+                    <motion.div custom={i + 1} variants={ShowAnimation} key={i}>
+                        <div>
+                            <h2>Adaptive Noise Cancellation</h2>
+                            <p>Smart silence</p>
+                            <p>Microphones analyze ambient noise 1,000 times per second. The world around you quiets down when you need to concentrate, and returns gently for safety outdoors.</p>
+                        </div>
                     </motion.div>
                 ))}
             </motion.div>

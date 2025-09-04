@@ -9,6 +9,7 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@specy/liquid-glass-react": "^1.0.2",
     "@tsparticles/react": "^3.0.0",
     "@tsparticles/slim": "^3.9.1",
     "canvas": "^3.2.0",
