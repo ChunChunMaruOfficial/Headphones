@@ -21,10 +21,10 @@ const ShowAnimation = {
 export default function Second() {
     return (
         <div className={styles.parent}>
-            <div className={styles.background}>
+            <motion.div id='product' className={styles.background}>
                 <Image src={secondvectorcolor} alt="" />
                 <Image src={secondvectorwrapper} alt="" />
-            </div>
+            </motion.div>
             <motion.div viewport={{ amount: 0.2, once: true }} initial="hidden" whileInView="visible" className={styles.container}>
                 {[...Array(3)].map((_, i) => (
                     <motion.div custom={i + 1} variants={ShowAnimation} key={i}>

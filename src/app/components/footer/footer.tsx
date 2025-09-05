@@ -1,13 +1,17 @@
 "use client";
 
-import styles from './styles.module.scss'
+import styles from './style.module.scss'
 import Image from 'next/image'
 import telegramimg from '../../assets/svg/telegram.svg'
+import footerline from '../../assets/svg/footerline.svg'
+import { motion } from 'framer-motion';
+
 
 export default function Footer() {
     const array: string[] = ['pdf', 'txt', 'web']
     return (
-        <div className={styles.parent}>
+        <motion.div id='contacts' className={styles.parent}>
+            <Image src={footerline} alt='' />
             <div>
                 <h1>contact</h1>
                 <a href="#">POCHTA@GMAIL.com</a>
@@ -18,8 +22,8 @@ export default function Footer() {
             </div>
             <div>
                 <h1>catalog</h1>
-                <span>{array.map(v => (<a href='#'>{v}</a>))}</span>
+                <span>{array.map((v,i)=> (<a key={i} href='#'>{v}</a>))}</span>
             </div>
-        </div>
+        </motion.div>
     )
 }

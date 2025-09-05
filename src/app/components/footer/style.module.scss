@@ -2,15 +2,49 @@
 
 .parent {
     @include mixin.flex(start, space-between);
+    padding: 90px 190px;
+    max-width: 2254px;
+    margin-inline: auto;
+    position: relative;
+
+    >img {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+    }
 
     >div {
-        @include mixin.flex(start, start, column, nowrap, 66px);
+        @include mixin.flex(center, start, column, nowrap, 66px);
+
+        >a,
+        >span {
+            margin-top: 19px;
+        }
+
+        >span {
+            @include mixin.flex(start, start, row, nowrap, 35px);
+        }
+
+        a {
+            text-transform: uppercase;
+            @include mixin.font(var(--white), var(--font-inclusive-sans), 30px);
+        }
 
         >h1 {
             @include mixin.font(var(--white), 'Roboto', 50px);
+            text-transform: uppercase;
+
+
         }
 
-       // &:nth-of-type(3)
+        &:nth-of-type(3)>h1 {
+            text-decoration-line: underline;
+        }
+
+        &:nth-of-type(1) {
+            align-items: start;
+        }
     }
 
 }

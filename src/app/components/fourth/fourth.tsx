@@ -4,6 +4,8 @@ import { motion } from 'framer-motion';
 import styles from './styles.module.scss'
 import Image from 'next/image'
 import headphones2 from '../../assets/img/headphones2.png'
+import Footer from '../footer/footer';
+
 
 const TextAnimation = {
     hidden: {
@@ -41,6 +43,7 @@ export default function Fourth() {
                     <motion.button custom={3} variants={TextAnimation}>Download catalog (PDF)</motion.button>
                 </div>
             </div>
+            <Footer/>
         </motion.div>
     )
 }
