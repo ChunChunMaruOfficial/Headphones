@@ -26,10 +26,12 @@
 
     .wrapper {
         position: relative;
+        max-width: 100%;
 
         .vectors {
             position: relative;
             width: max-content;
+            max-width: 100%;
 
             >img:nth-of-type(2) {
                 opacity: .7;
@@ -72,10 +74,10 @@
             }
         }
 
-        >span{
+        >span {
             position: absolute;
             right: -29px;
-            top: -100px;
+            top: 0px;
         }
     }
 }

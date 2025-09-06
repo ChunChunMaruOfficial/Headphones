@@ -89,7 +89,7 @@ export default function First() {
                         },
                     }}
                 >
-                    <Image src={headphones} width={1119} height={1119} alt="" />
+                    <Image src={headphones} width={1000} height={1000} alt="" />
                 </motion.span>
             </div>
         </div>

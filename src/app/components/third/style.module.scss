@@ -2,8 +2,9 @@
 
 .parent {
     position: relative;
-    width: fit-content;
     margin: auto;
+    width: 100%;
+    @include mixin.flex(center, auto, column, nowrap, 0);
 
     .top {
         @include mixin.flex(center, center, column, nowrap, 27px);
@@ -20,23 +21,41 @@
 
     .vectors {
         position: relative;
-        width: max-content;
         transform: translateX(-25px);
+        max-width: 100%;
+
+        >p {
+            @include mixin.font(var(--white), var(--font-inclusive-sans), 30px);
+            position: absolute;
+            max-width: 420px;
+
+            &:nth-of-type(1) {
+                text-align: left;
+                left: 205px;
+                top: 70px;
+            }
+
+            &:nth-of-type(2) {
+                text-align: right;
+                 right: 0px;
+                top: 807px;
+            }
+        }
 
         >img:nth-of-type(2) {
             opacity: .7;
             position: absolute;
-            top: 40px;
-            left: 25px;
+            top: 20px;
+            left: 15px;
         }
     }
 
     .mainpng {
-        @include mixin.flex(center, center, column, nowrap, 27px);
+        @include mixin.flex(center, center, column, nowrap, 0px);
         position: absolute;
         left: 50%;
         top: 50%;
-        transform: translate(-50%, -45%);
+        transform: translate(-50%, -25%);
 
         >span>img:not(.arrow) {
             transform: scaleX(-1)
@@ -64,22 +83,6 @@
         }
     }
 
-    >p {
-        @include mixin.font(var(--white), var(--font-inclusive-sans), 30px);
-        position: absolute;
-        max-width: 483px;
 
-        &:nth-of-type(1) {
-            text-align: left;
-            left: 190px;
-            top: 375px;
-        }
-
-        &:nth-of-type(2) {
-            text-align: right;
-            right: 242px;
-            top: 1137px;
-        }
-    }
 
 }

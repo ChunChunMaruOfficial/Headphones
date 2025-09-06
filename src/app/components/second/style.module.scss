@@ -2,9 +2,52 @@
 
 .parent {
     position: relative;
-    width: fit-content;
+    width: min-content;
+    overflow: auto;
+    height: 1300px;
     margin-top: 26px;
     margin: auto;
+
+    &::-webkit-scrollbar {
+        width: 12px;
+        height: 12px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: transparent;
+        border-radius: 10px;
+        margin: 4px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: #c1c1c1;
+        border-radius: 10px;
+        border: 3px solid transparent;
+        background-clip: padding-box;
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+        background: #a8a8a8;
+        border: 2px solid transparent;
+        background-clip: padding-box;
+    }
+
+    &::-webkit-scrollbar-thumb:active {
+        background: #888888;
+        border: 2px solid transparent;
+        background-clip: padding-box;
+    }
+
+    &::-webkit-scrollbar-corner {
+        background: transparent;
+    }
+
+
+
+    scrollbar-width: thin;
+    scrollbar-color: #3c3c3c transparent;
+    scrollbar-gutter: stable;
+
 
     .background {
         z-index: -1;
@@ -16,15 +59,15 @@
     }
 
     .container {
-        @include mixin.flex(auto, auto, row, nowrap, 54px);
+        @include mixin.flex(start, start, row, nowrap, 54px);
         padding: 136px 0 0 196px;
+        width: fit-content;
 
         >div {
             border-radius: 30px;
             background: rgba(0, 0, 0, 0.03);
-            padding: 81px 117px;
+
             z-index: 1;
-            width: min-content;
 
             backdrop-filter: blur(7px);
 
@@ -74,11 +117,11 @@
             }
 
             >div {
+                padding: 81px 87px;
                 background: none;
                 border: none;
                 outline: none;
                 z-index: 1;
-                width: calc(100% + 5px);
                 height: calc(100% + 5px);
 
                 &::after {
@@ -140,6 +183,12 @@
     .rodmap {
         position: relative;
         transform: translateY(100px);
+        width: 100%;
+
+        >img {
+            width: 100%;
+
+        }
 
         >div {
             background: rgba(255, 255, 255, 1);
@@ -150,13 +199,13 @@
 
 
             &:nth-of-type(1) {
-                top: 50px;
-                left: 570px;
+                top: 63px;
+                left: 474px;
             }
 
             &:nth-of-type(2) {
-                top: 330px;
-                left: 1430px;
+                top: 306px;
+                left: 1256px;
             }
         }
     }
