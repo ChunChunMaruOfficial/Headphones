@@ -53,8 +53,9 @@ a {
   text-decoration: none;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+@media (max-width: 768px) {
+  body{
+    width: 100vw;
+    overflow: hidden;
   }
 }

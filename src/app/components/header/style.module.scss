@@ -9,19 +9,19 @@
         @include mixin.flex(center, center, row, nowrap, 220px);
         margin-block: 70px 50px;
 
-        >p {
+        > p {
             @include mixin.font(rgba(255, 255, 255, 0.5), var(--font-inclusive-sans), 50px);
             text-transform: uppercase;
             cursor: pointer;
             transition: .2s ease-in-out;
 
             &.selected {
-                color: var(--white)
+                color: var(--white);
             }
         }
     }
 
-    >span {
+    > span {
         display: block;
         width: 100%;
         height: 2px;
@@ -29,5 +29,26 @@
                 rgba(255, 255, 255, 0.3) 0%,
                 rgba(255, 255, 255, 0.5) 50%,
                 rgba(255, 255, 255, 0.3) 100%);
+    }
+}
+
+@media (max-width: 768px) {
+    .parent {
+        margin-bottom: 50px; 
+        padding-inline: 20px; 
+        
+        .pages {
+            @include mixin.flex(center, center, row, nowrap, 20px); 
+            margin-block: 40px 30px;
+
+            > p {
+                @include mixin.font(rgba(255, 255, 255, 0.5), var(--font-inclusive-sans), 24px);
+                text-wrap: nowrap;
+
+                &.selected {
+                    color: var(--white);
+                }
+            }
+        }
     }
 }

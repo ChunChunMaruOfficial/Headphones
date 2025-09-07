@@ -19,7 +19,7 @@ export default function First() {
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.5 }}
             >
-                <h1>headphones</h1>
+                <h1>head<span>phones</span></h1>
                 <span><p>SILENCE</p><Image src={headvector1} alt="" /><p>REDEFINED</p></span>
             </motion.div>
             <div className={styles.wrapper}>

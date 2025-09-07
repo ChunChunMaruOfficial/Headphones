@@ -12,9 +12,8 @@ export default function Header() {
         const element = document.getElementById(sectionId);
         if (!element) return;
 
-        // Получаем позицию элемента относительно документа
         const rect = element.getBoundingClientRect();
-        const targetY = window.scrollY + rect.top - 100; // -100px отступ сверху
+        const targetY = window.scrollY + rect.top - 100;
 
         const currentY = window.scrollY;
 
