@@ -269,3 +269,78 @@
         background-color: var(--white);
     }
 }
+
+@media (max-width: 768px) {
+    .parent {
+        >h1 {
+            @include mixin.font(var(--white), var(--roboto), 40px, 900);
+            width: 90%;
+            text-wrap: wrap;
+        }
+
+        .content {
+            // transform-origin: center;
+            @include mixin.flex(center, center, column-reverse, nowrap, 24px);
+            // width: 100%;
+
+            // height: min-content;
+
+            >.comment {
+                border-radius: 14.09px;
+                padding: 87.35px 36.63px;
+                width: 100%;
+
+                >span {
+                   
+                    top: 0;
+                    left: 26px;
+
+                    >img:first-of-type {
+                        margin-right: 3.9px;
+                    }
+
+                    >img{
+                         width: 20px;
+                    }
+                }
+
+                >p {
+                    @include mixin.font(var(--white), var(--font-inclusive-sans), 10px, 400, 120%);
+                }
+            }
+
+            >.bio {
+                @include mixin.flex(center, center, column, nowrap, 13px);
+
+                >.top {
+                    @include mixin.flex(flex-start, center, row, nowrap, 20px);
+
+                    >div {
+                        padding: 70px 46.50px;
+                        border-radius: 14.09px;
+                        @include mixin.font(var(--black), var(--font-jockey-one), 20px);
+                    }
+                }
+
+
+                >.down {
+                    @include mixin.flex(center, center, column, nowrap, 5.17px);
+                    padding-block: 21.6px;
+
+                    border-radius: 14.09px;
+
+                    >h1 {
+                        @include mixin.font(var(--black), var(--font-jockey-one), 20px);
+                    }
+
+                    >p {
+                        @include mixin.font(var(--black), var(--font-inclusive-sans), 10px);
+
+                    }
+
+                }
+
+            }
+        }
+    }
+}

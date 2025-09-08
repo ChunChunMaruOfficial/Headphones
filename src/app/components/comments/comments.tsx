@@ -18,7 +18,7 @@ interface Particle {
 
 export default function Comments() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const [isalive, setisalive] = useState(false);
+  const [isalive, setisalive] = useState(true);
   const particlesRef = useRef<Particle[]>([]);
   const animationRef = useRef<number>(0);
   const particlesInitializedRef = useRef(false);
@@ -154,10 +154,23 @@ export default function Comments() {
     setisalive(prev => !prev);
   };
 
+
+  const [ismobile, setismobile] = useState(false)
+
+  useEffect(() => {
+    if (window.innerWidth <= 768) {
+      setismobile(true)
+
+    } else {
+      setismobile(false)
+
+    }
+  }, [])
+
   return (
     <div className={styles.parent}>
       <h1>Sound that was appreciated</h1>
-      <div className={isalive ? styles.content + ' ' + styles.isdead : styles.content + ' ' + styles.isalive}>
+      <div onClick={handleToggle} className={isalive ? styles.content + ' ' + styles.isdead : styles.content + ' ' + styles.isalive}>
         <div className={styles.comment}>
           <span>
             <Image alt='' src={comma} />
@@ -167,7 +180,7 @@ export default function Comments() {
         </div>
         <div className={styles.bio}>
           <div className={styles.top}>
-              <Image height={350} width={350} src={aman} alt='' />
+            <Image height={ismobile ? 160 : 350} width={ismobile ? 160 : 350} src={aman} alt='' />
             <div>the best</div>
           </div>
           <div className={styles.down}>
@@ -190,7 +203,6 @@ export default function Comments() {
           height: '100%',
         }}
       />
-      {/* <button onClick={handleToggle}>click</button> */}
     </div>
   );
 };

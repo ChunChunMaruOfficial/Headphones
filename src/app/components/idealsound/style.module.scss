@@ -105,26 +105,28 @@
 @media (max-width: 768px) {
     .parent {
         padding: 0;
+
         >h1 {
             @include mixin.font(var(--white), var(--roboto), 40px, 900);
             text-align: center
         }
 
         .stair {
-            @include mixin.flex(start, center, column, nowrap, 35px);
+            @include mixin.flex(end, end, column, nowrap, 35px);
             // position: relative;
 
             >.card {
-                @include mixin.flex(start, start, column, nowrap, 10px);
-                // box-shadow: inset 0px 4px 28px 0px rgba(0, 0, 0, 0.25);
-                // background: linear-gradient(126.11deg, rgba(255, 180, 247, 1), rgba(255, 208, 222.50001525878906, 1) 13%, rgba(255, 236, 198, 1) 24%, rgba(255, 149, 236, 1) 38%, rgba(233, 140.50001525878906, 245.5, 1) 51%, rgba(142, 173, 255, 1) 67%, rgba(207.25, 156.87501525878906, 252.625, 1) 84%, rgba(255, 126, 246, 1) 93%);
+                @include mixin.flex(start, end, column, nowrap, 10px);
                 border-radius: 11.74px;
-                padding: 28px 44px;
+                padding: 28px 28px;
 
-                // position: relative;
+                margin-left: 69px;
+                transform: translateY(30px);
+
                 &:nth-of-type(3),
                 &:nth-of-type(2) {
                     margin-left: 67px;
+                    width: 70%;
                 }
 
 
@@ -142,52 +144,51 @@
                     content: none;
                 }
 
-                // }
+            }
 
-                //     >img {
-                //         position: absolute;
+            >img {
+                position: absolute;
 
-                //         &:first-of-type {
+                &:first-of-type {
 
-                //             top: 130px;
-                //             left: -327px;
-                //         }
+                    top: 0px;
+                    left: -43px;
+                }
 
-                //         &:nth-of-type(2) {
-                //             top: 184px;
-                //             left: -302px;
-                //         }
-                //     }
+                &:nth-of-type(2) {
+                    top: 13px;
+                    left: -29px;
+                }
+            }
 
-                //     >.background {
-                //         position: absolute;
-                //         z-index: -1;
-                //         left: -300px;
-                //         top: 0;
-                //         @include mixin.flex(center, center, row, nowrap, 47.7px);
+                >.background {
+                    position: absolute;
+                    z-index: -1;
+                    left: -300px;
+                    top: -150px;
+                    @include mixin.flex(center, center, row, nowrap, 24.4px);
 
-                //         >.sound {
-                //             @include mixin.flex(center, auto, row, nowrap, 47.7px);
+                    >.sound {
+                        @include mixin.flex(center, auto, row, nowrap, 24.4px);
 
-                //             >span {
-                //                 width: 27px;
-                //                 border-radius: 100px;
-                //                 background: rgb(26, 26, 26)
-                //             }
+                        >span {
+                            width: 13px;
+                            border-radius: 51.06px;
+                        }
 
-                //             &:first-of-type {
-                //                 transform: translateY(489px);
-                //             }
+                        &:first-of-type {
+                            transform: translateY(189px);
+                        }
 
-                //             &:nth-of-type(2) {
-                //                 transform: translateY(316px);
-                //                 margin-right: 120px;
-                //             }
+                        &:nth-of-type(2) {
+                            transform: translateY(116px);
+                            margin-right: 0;
+                        }
 
-                //             &:nth-of-type(4) {
-                //                 transform: translateY(-160px);
-                //             }
-                //         }
+                        &:nth-of-type(4) {
+                            transform: translateY(-160px);
+                        }
+                  }
             }
         }
     }

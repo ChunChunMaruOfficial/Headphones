@@ -5,6 +5,7 @@ import styles from './styles.module.scss'
 import Image from 'next/image'
 import headphones2 from '../../assets/img/headphones2.png'
 import Footer from '../footer/footer';
+import { useEffect, useState } from 'react';
 
 
 const TextAnimation = {
@@ -15,7 +16,7 @@ const TextAnimation = {
     visible: (custom: number) => ({
         opacity: 1,
         x: 0,
-        transition: {delay: (custom * 0.4) + .6}
+        transition: { delay: (custom * 0.4) + .6 }
     }),
 }
 
@@ -27,23 +28,38 @@ const HightAnimation = {
     visible: {
         opacity: 1,
         y: 0,
-        transition: {delay: .8}
+        transition: { delay: .8 }
     }
 }
 
 export default function Fourth() {
+
+    const [ismobile, setismobile] = useState(false)
+
+
+    useEffect(() => {
+        if (window.innerWidth <= 768) {
+            setismobile(true)
+
+        } else {
+            setismobile(false)
+
+        }
+    }, [])
+
     return (
-        <motion.div viewport={{amount: 0.2, once: true}} initial="hidden" whileInView="visible" className={styles.parent}>
+        <motion.div viewport={{ amount: 0.2, once: true }} initial="hidden" whileInView="visible" className={styles.parent}>
             <motion.h1 variants={HightAnimation}>READY TO REDEFINITION YOUR BOUNDARIES?</motion.h1>
             <div className={styles.content}>
-                <Image width={1249} src={headphones2} alt='' />
+                <Image width={ismobile ? 380 : 1249} src={headphones2} alt='' />
+                {ismobile && (<span></span>)}
                 <div className={styles.sidepart}>
                     <motion.h2 custom={1} variants={TextAnimation}>Contact our audio consultant for a personal demonstration of the capabilities</motion.h2>
                     <motion.button custom={2} variants={TextAnimation}>Sign up for a demonstration</motion.button>
                     <motion.button custom={3} variants={TextAnimation}>Download catalog (PDF)</motion.button>
                 </div>
             </div>
-            <Footer/>
+            <Footer />
         </motion.div>
     )
 }

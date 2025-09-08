@@ -48,3 +48,47 @@
     }
 
 }
+
+@media (max-width: 768px) {
+    .parent {
+        @include mixin.flex(start, space-between, row, wrap);
+        padding: 31px 55px;
+        width: 100%;
+        max-width: none;
+
+        >img {
+            width: 80vw;
+        }
+
+        >div {
+
+            width: 50%;
+            @include mixin.flex(start, space-between, column, nowrap, 15px);
+
+            >a,
+            >span {
+                margin-top: 0;
+            }
+
+            >span {
+                @include mixin.flex(start, start, row, nowrap, 24px);
+            }
+
+            a {
+                @include mixin.font(var(--white), var(--font-inclusive-sans), 10px);
+            }
+
+            >h1 {
+                @include mixin.font(var(--white), 'Roboto', 25px);
+            }
+
+            &:nth-of-type(2) {
+                align-items: end;
+            }
+            >img{
+                width: 52px;
+                height: 52px;
+            }
+        }
+    }
+}
