@@ -12,10 +12,12 @@
 
         >h1 {
             @include mixin.font(var(--white), var(--roboto), 100px, 900);
+            text-align: center;
         }
 
         >h2 {
             @include mixin.font(var(--white), var(--font-inclusive-sans), 50px);
+            text-align: center;
         }
     }
 
@@ -37,7 +39,7 @@
 
             &:nth-of-type(2) {
                 text-align: right;
-                 right: 0px;
+                right: 0px;
                 top: 807px;
             }
         }
@@ -78,11 +80,103 @@
         >button {
             padding: 28px 68px;
             border-radius: 100px;
-            background: rgba(255, 255, 255, 1);
+            background: var(--white);
             @include mixin.font(var(--black), var(--roboto), 60px, 900);
         }
     }
+}
 
 
+@media (max-width: 768px) {
+    .parent {
+        margin-bottom: 1000px;
 
+        .top {
+            margin-top: 0;
+            @include mixin.flex(center, center, column, nowrap, 32px);
+            margin-bottom: 23px;
+
+            >h1 {
+                @include mixin.font(var(--white), var(--roboto), 50px, 900);
+            }
+
+            >h2 {
+                @include mixin.font(var(--white), var(--font-inclusive-sans), 25px);
+            }
+        }
+
+        .vectors {
+            position: relative;
+            transform: translateX(-25px);
+            max-width: 100%;
+
+            >p {
+                @include mixin.font(var(--white), var(--font-inclusive-sans), 12px);
+                position: absolute;
+                max-width: 240px;
+
+                &:nth-of-type(1) {
+                    text-align: left;
+                    top: 15px;
+                    left: -168px;
+                    padding-right: 15px;
+                }
+
+                &:nth-of-type(2) {
+                    text-align: right;
+                    top: 619px;
+                    left: 9px;
+                    right: auto;
+                    width: 183px;
+                }
+            }
+
+            >span {
+                position: absolute;
+                top: 0;
+
+                >img:nth-of-type(2) {
+                    position: absolute;
+                    top: 12px;
+                    left: 7px;
+                }
+
+                &:nth-of-type(2) {
+                    right: 0;
+                    top: 600px;
+                }
+            }
+
+
+        }
+
+        .mainpng {
+            @include mixin.flex(center, center, column, nowrap, 110px);
+
+            top: 143%;
+            transform: translatex(-50%);
+
+            >.arrow {
+                position: absolute;
+                scale: .3;
+
+                &:nth-of-type(1) {
+                    left: -15px;
+                    bottom: 160px;
+                }
+
+                &:nth-of-type(2) {
+                    right: -10px;
+                    top: -40px
+                }
+            }
+
+            >button {
+                padding: 11px 26px;
+                border-radius: 38.89px;
+                @include mixin.font(var(--black), var(--roboto), 20px, 900);
+            }
+        }
+
+    }
 }

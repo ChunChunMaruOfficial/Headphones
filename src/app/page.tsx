@@ -15,7 +15,7 @@ export default function Home() {
       <Second />
       <Third />
       <Idealsound />
-      <Comments />
+      {/* <Comments /> */}
       <Fourth />
     </div>
   );

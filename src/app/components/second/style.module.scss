@@ -42,12 +42,9 @@
         background: transparent;
     }
 
-
-
     scrollbar-width: thin;
     scrollbar-color: #3c3c3c transparent;
     scrollbar-gutter: stable;
-
 
     .background {
         z-index: -1;
@@ -66,11 +63,8 @@
         >div {
             border-radius: 30px;
             background: rgba(0, 0, 0, 0.03);
-
             z-index: 1;
-
             backdrop-filter: blur(7px);
-
             border: 1px solid rgba(255, 255, 255, 0.3);
             box-shadow:
                 0 8px 32px rgba(0, 0, 0, 0.1),
@@ -79,10 +73,6 @@
                 inset 0 0 0px 0px rgba(255, 255, 255, 0);
             position: relative;
             overflow: hidden;
-
-
-
-
             mask-composite: exclude;
             display: flex;
             justify-content: center;
@@ -135,7 +125,6 @@
                         inset 0 -2px 4px rgba(0, 0, 0, 0.25);
                 }
 
-
                 >h2 {
                     @include mixin.font(var(--white), var(--font-jockey-one), 50px);
                     margin-bottom: 147px;
@@ -187,7 +176,6 @@
 
         >img {
             width: 100%;
-
         }
 
         >div {
@@ -196,7 +184,6 @@
             height: 55px;
             border-radius: 100%;
             position: absolute;
-
 
             &:nth-of-type(1) {
                 top: 63px;
@@ -214,10 +201,9 @@
 @media (max-width: 768px) {
     .parent {
         width: -moz-available;
-        overflow: auto;
-        height: 1300px;
-
-
+        overflow-x: auto;
+        overflow-y: hidden;
+        height: auto;
 
         .background {
             z-index: -1;
@@ -238,63 +224,10 @@
             width: fit-content;
 
             >div {
-                border-radius: 30px;
-                background: rgba(0, 0, 0, 0.03);
-                transform: none;
-                z-index: 1;
                 transform: translateY(55px);
-                backdrop-filter: blur(7px);
-
-                border: 1px solid rgba(255, 255, 255, 0.3);
-                box-shadow:
-                    0 8px 32px rgba(0, 0, 0, 0.1),
-                    inset 0 1px 0 rgba(255, 255, 255, 0.5),
-                    inset 0 -1px 0 rgba(255, 255, 255, 0.1),
-                    inset 0 0 0px 0px rgba(255, 255, 255, 0);
-                position: relative;
-
-
-
-
-                mask-composite: exclude;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-
-                &::before {
-                    content: '';
-                    position: absolute;
-                    inset: 0;
-                    border-radius: 100px;
-                    height: calc(100% + 5px);
-                    width: calc(100% + 5px);
-                    left: 50%;
-                    top: 50%;
-                    transform: translate(-50%, -50%);
-                    z-index: -1;
-                    background: linear-gradient(45deg,
-                            rgba(255, 255, 255, 0.05) 5%,
-                            #fff 50%,
-                            rgba(255, 255, 255, 0.05) 100%);
-                    mask: radial-gradient(transparent 60%,
-                            black 61%);
-                    mask-composite: exclude;
-                }
-
-                &:nth-of-type(1) {
-                    transform: translateY(55px)
-                }
-
-                &:nth-of-type(2) {
-                    transform: translateY(55px)
-                }
 
                 >div {
                     padding: 24px 32px;
-                    z-index: 1;
-                    height: calc(100% + 5px);
-
-
 
                     >h2 {
                         @include mixin.font(var(--white), var(--font-jockey-one), 25px);
@@ -309,6 +242,11 @@
                         }
                     }
                 }
+
+                &:nth-of-type(2),
+                &:nth-of-type(3) {
+                    transform: translateY(55px);
+                }
             }
 
             >span {
@@ -316,36 +254,18 @@
                 width: 25px;
                 height: 25px;
                 top: 489px;
-                left: 47%;
+                left: 63%;
                 transform: translateX(-50%);
                 border-radius: 100%;
                 background-color: var(--white);
-            }
 
-            >div::after {
-                content: '';
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 1px;
-                height: 100%;
-                background: linear-gradient(180deg,
-                        rgba(255, 255, 255, 0.8),
-                        transparent,
-                        rgba(255, 255, 255, 0.3));
-            }
+                &:nth-of-type(3) {
+                    left: 224%;
+                }
 
-            >div::before {
-                content: '';
-                position: absolute;
-                top: 0;
-                left: 0;
-                right: 0;
-                height: 1px;
-                background: linear-gradient(90deg,
-                        transparent,
-                        rgba(255, 255, 255, 0.8),
-                        transparent);
+                &:nth-of-type(2) {
+                    left: 384%;
+                }
             }
         }
 
@@ -357,7 +277,6 @@
 
             >img {
                 width: auto;
-
             }
 
             >div {
