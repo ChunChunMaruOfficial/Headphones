@@ -62,7 +62,7 @@ export default function Second() {
             </motion.div>
             <div className={styles.rodmap}>
                 {lineformat == secondvector6 ? (<Image src={lineformat} alt="" />) : [...Array(3)].map((_, i) => (
-                    <Image src={lineformat} alt="" />
+                    <  Image src={lineformat} key={i} alt="" />
                 ))}
 
 

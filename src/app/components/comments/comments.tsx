@@ -168,9 +168,9 @@ export default function Comments() {
   }, [])
 
   return (
-    <div className={styles.parent}>
+    <div onClick={handleToggle} className={styles.parent}>
       <h1>Sound that was appreciated</h1>
-      <div onClick={handleToggle} className={isalive ? styles.content + ' ' + styles.isdead : styles.content + ' ' + styles.isalive}>
+      <div  className={isalive ? styles.content + ' ' + styles.isdead : styles.content + ' ' + styles.isalive}>
         <div className={styles.comment}>
           <span>
             <Image alt='' src={comma} />

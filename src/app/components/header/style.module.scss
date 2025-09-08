@@ -36,7 +36,7 @@
     .parent {
         margin-bottom: 50px; 
         padding-inline: 20px; 
-        
+        z-index: 3;
         .pages {
             @include mixin.flex(center, center, row, nowrap, 20px); 
             margin-block: 40px 30px;
