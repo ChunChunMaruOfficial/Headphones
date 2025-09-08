@@ -14,7 +14,7 @@ import mobilegray from '../../assets/svg/mobilegray.svg'
 import mobileline from '../../assets/svg/mobileline.svg'
 
 import secondvector6 from '../../assets/svg/secondvector6.svg'
-import { useEffect, useState } from 'react';
+import { Fragment, useEffect, useState } from 'react';
 
 const ShowAnimation = {
     hidden: {
@@ -48,7 +48,7 @@ export default function Second() {
             </motion.div>
             <motion.div viewport={{ amount: 0.2, once: true }} initial="hidden" whileInView="visible" className={styles.container}>
                 {[...Array(3)].map((_, i) => (
-                    < >
+                    <Fragment key={i} >
                         <motion.div custom={i + 1} variants={ShowAnimation}>
                             <div>
                                 <h2>Adaptive Noise Cancellation</h2>
@@ -57,7 +57,7 @@ export default function Second() {
                             </div>
                         </motion.div>
                         {lineformat != secondvector6 && (<span></span>)}
-                    </>
+                    </Fragment >
                 ))}
             </motion.div>
             <div className={styles.rodmap}>
