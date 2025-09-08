@@ -176,7 +176,7 @@ export default function Comments() {
             <Image alt='' src={comma} />
             <Image alt='' src={comma} />
           </span>
-          <p>Finally, studio monitoring that doesn't tie you to your chair. Low-end detail is impeccable, and highs are crystal clear, without a single note of fatigue. This is exactly the tool I was looking for to mix my new album.</p>
+          <p>Finally, studio monitoring that doesn&apos;t tie you to your chair. Low-end detail is impeccable, and highs are crystal clear, without a single note of fatigue. This is exactly the tool I was looking for to mix my new album.</p>
         </div>
         <div className={styles.bio}>
           <div className={styles.top}>

@@ -49,14 +49,14 @@ export default function Second() {
             <motion.div viewport={{ amount: 0.2, once: true }} initial="hidden" whileInView="visible" className={styles.container}>
                 {[...Array(3)].map((_, i) => (
                     < >
-                        <motion.div key={i} custom={i + 1} variants={ShowAnimation}>
+                        <motion.div custom={i + 1} variants={ShowAnimation}>
                             <div>
                                 <h2>Adaptive Noise Cancellation</h2>
                                 <p>Smart silence</p>
                                 <p>Microphones analyze ambient noise 1,000 times per second. The world around you quiets down when you need to concentrate, and returns gently for safety outdoors.</p>
                             </div>
                         </motion.div>
-                        {lineformat != secondvector6 && (<span key={i}></span>)}
+                        {lineformat != secondvector6 && (<span></span>)}
                     </>
                 ))}
             </motion.div>
