@@ -2,27 +2,14 @@
 
 import { useEffect, useState } from 'react';
 import styles from './style.module.scss'
-import idealsoundsvg from '../../assets/svg/idealsound.svg'
-import Image from "next/image";
-import mobilevector2 from '../../assets/svg/mobilevector2.svg'
 
 import { motion } from 'framer-motion';
+ 
+import Animatedmobilevector2 from '../../assets/svg/animated/mobilevector2'
+import Animatedidealsound from '../../assets/svg/animated/idealsound'
 
 
-export default function Idealsound() {
-    const [ismobile, setismobile] = useState(false)
-
-
-    useEffect(() => {
-        if (window.innerWidth <= 768) {
-            setismobile(true)
-
-        } else {
-            setismobile(false)
-
-        }
-    }, [])
-
+export default function Idealsound({ismobile}:{ismobile: boolean}) {
 
     const TextAnimation = {
         hidden: {
@@ -53,8 +40,8 @@ export default function Idealsound() {
                         <span>{v.text}</span>
                     </motion.div>
                 ))}
-                <Image src={ismobile ? mobilevector2 : idealsoundsvg} alt='' />
-                <Image src={ismobile ? mobilevector2 : idealsoundsvg} alt='' />
+                {ismobile ? (<Animatedmobilevector2/>) : (<Animatedidealsound/>)}
+                {ismobile ? (<Animatedmobilevector2/>) : (<Animatedidealsound/>)}
                 <div className={styles.background}>
                     {sound(soundhight)}
                     {sound(bigsoundhight)}

@@ -4,15 +4,17 @@ import { motion } from 'framer-motion';
 import Header from '../header/header';
 import Image from "next/image";
 import styles from './style.module.scss'
-import headvector1 from '../../assets/svg/headvector1.svg'
-import headvector2 from '../../assets/svg/headvector2.svg'
-import headvector3 from '../../assets/svg/headvector3.svg'
+
+import Animatedheadvector1 from '../../assets/svg/animated/headvector1.jsx'
+import Animatedheadvector2 from '../../assets/svg/animated/headvector2.jsx'
+import Animatedheadvector3 from '../../assets/svg/animated/headvector3.jsx'
+
 import headphones from '../../assets/img/headphones.png'
 
-export default function First() {
+export default function First({ismobile}:{ismobile: boolean}) {
     return (
         <div className={styles.parent}>
-            <Header /> 
+            <Header />
             <motion.div
                 className={styles.top}
                 initial={{ opacity: 0 }}
@@ -20,14 +22,14 @@ export default function First() {
                 transition={{ duration: 0.5 }}
             >
                 <h1>head<span>phones</span></h1>
-                <span><p>SILENCE</p><Image src={headvector1} alt="" /><p>REDEFINED</p></span>
+                <span><p>SILENCE</p>{ !ismobile && (<Animatedheadvector1 />)}<p>REDEFINED</p></span>
             </motion.div>
             <div className={styles.wrapper}>
 
 
                 <div className={styles.vectors}>
-                    <Image src={headvector3} alt="" />
-                    <Image src={headvector2} alt="" />
+                    <Animatedheadvector3 />
+                    <Animatedheadvector2 />
                 </div>
                 <div className={styles.sidepart}>
                     <motion.div

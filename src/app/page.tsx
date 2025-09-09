@@ -6,15 +6,27 @@ import Third from "./components/third/third";
 import Idealsound from "./components/idealsound/idealsound";
 import Fourth from "./components/fourth/fourth";
 import Comments from "./components/comments/comments";
+import { useEffect, useState } from "react";
 
 export default function Home() {
+    const [ismobile, setismobile] = useState<boolean>(false)
 
+
+    useEffect(() => {
+        if (window.innerWidth <= 768) {
+            setismobile(true)
+
+        } else {
+            setismobile(false)
+
+        }
+    }, [])
   return (
     <div>
-      <First />
-      <Second />
-      <Third />
-      <Idealsound />
+      <First ismobile={ismobile} />
+      <Second ismobile={ismobile} />
+      <Third ismobile={ismobile}/>
+      <Idealsound ismobile={ismobile} />
       <Comments />
       <Fourth />
     </div>

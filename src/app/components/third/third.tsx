@@ -4,15 +4,14 @@ import { motion } from 'framer-motion';
 import Image from "next/image";
 import styles from './style.module.scss'
 
-import thirdvector10 from '../../assets/svg/thirdvector10.svg'
-import thirdvector9 from '../../assets/svg/thirdvector9.svg'
+import Animatedthirdvector10 from '../../assets/svg/animated/thirdvector10.jsx'
+import Animatedthirdvector9 from '../../assets/svg/animated/thirdvector9.jsx'
 
-import mobilevector0 from '../../assets/svg/mobilevector0.svg'
-import mobilevector1 from '../../assets/svg/mobilevector1.svg'
+import Animatedmobilevector0 from '../../assets/svg/animated/mobilevector0.jsx'
+import Animatedmobilevector1 from '../../assets/svg/animated/mobilevector1.jsx'
 
 import headphones from '../../assets/img/headphones.png'
 import arrow from '../../assets/svg/arrow.svg'
-import { useState, useEffect } from 'react';
 
 const TextAnimation = {
     hidden: {
@@ -36,20 +35,7 @@ const HightAnimation = {
     }),
 }
 
-export default function Third() {
-    const [ismobile, setismobile] = useState(false)
-
-    useEffect(() => {
-        if (window.innerWidth <= 768) {
-            setismobile(true)
-
-        } else {
-            setismobile(false)
-
-        }
-    }, [])
-
-
+export default function Third({ismobile}:{ismobile: boolean}) {
     return (
         <motion.div id='show' viewport={{ amount: 0.2, once: true }} initial="hidden" whileInView="visible" className={styles.parent}>
             <span className={styles.top}>
@@ -60,16 +46,16 @@ export default function Third() {
                 <motion.p custom={1} variants={TextAnimation}>This shape is not a design whim, but the result of hundreds of hours of acoustic modeling to create the perfect soundstage around you.</motion.p>
                 {ismobile ? (<>
                     <span>
-                        <Image src={mobilevector0} alt="" />
-                        <Image src={mobilevector0} alt="" />
+                        <Animatedmobilevector0/>
+                        <Animatedmobilevector0 />
                     </span>
                     <span>
-                        <Image src={mobilevector1} alt="" />
-                        <Image src={mobilevector1} alt="" />
+                        <Animatedmobilevector1 />
+                        <Animatedmobilevector1 />
                     </span>
                 </>) : (<>
-                    <Image src={thirdvector10} alt="" />
-                    <Image src={thirdvector9} alt="" />
+                    <Animatedthirdvector10 />
+                    <Animatedthirdvector9 />
                 </>)}
                 <motion.p custom={2} variants={TextAnimation}>This shape is not a design whim, but the result of hundreds of hours of acoustic modeling to create the perfect soundstage around you.</motion.p>
 

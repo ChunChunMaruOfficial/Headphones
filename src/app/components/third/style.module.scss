@@ -24,7 +24,8 @@
     .vectors {
         position: relative;
         transform: translateX(-25px);
-        max-width: 100%;
+        width: 100%;
+        max-width: 2373px;
 
         >p {
             @include mixin.font(var(--white), var(--font-inclusive-sans), 30px);
@@ -34,17 +35,17 @@
             &:nth-of-type(1) {
                 text-align: left;
                 left: 205px;
-                top: 70px;
+                top: 47px;
             }
 
             &:nth-of-type(2) {
                 text-align: right;
                 right: 0px;
-                top: 807px;
+                top: 709px;
             }
         }
 
-        >img:nth-of-type(2) {
+        >svg:nth-of-type(2) {
             opacity: .7;
             position: absolute;
             top: 20px;
@@ -57,7 +58,7 @@
         position: absolute;
         left: 50%;
         top: 50%;
-        transform: translate(-50%, -25%);
+        transform: translate(-50%, -33%);
 
         >span>img:not(.arrow) {
             transform: scaleX(-1)
@@ -117,33 +118,35 @@
 
                 &:nth-of-type(1) {
                     text-align: left;
-                    top: 15px;
-                    left: -168px;
-                    padding-right: 15px;
+                    top: 20px;
+                    left: 50px;
+                    padding-right: 86px;
                 }
 
                 &:nth-of-type(2) {
                     text-align: right;
                     top: 619px;
-                    left: 9px;
-                    right: auto;
+                    left: 220px;
                     width: 183px;
                 }
             }
 
             >span {
                 position: absolute;
-                top: 0;
 
-                >img:nth-of-type(2) {
+                >svg:nth-of-type(1) {
                     position: absolute;
                     top: 12px;
                     left: 7px;
                 }
-
+                
                 &:nth-of-type(2) {
-                    right: 0;
+                    left: -100px;
                     top: 600px;
+                }
+                &:nth-of-type(1) {
+                    top: 0;
+                    right: -100px;
                 }
             }
 

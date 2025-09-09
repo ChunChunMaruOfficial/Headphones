@@ -13,23 +13,25 @@
     }
 
     .stair {
-        @include mixin.flex(start, center, column, nowrap, 78px);
+        @include mixin.flex(start, center, column, nowrap, 57px);
         position: relative;
+        transform: translateX(90px);
+        width: 1700px;
 
         >.card {
             @include mixin.flex(start, start, column, nowrap, 50px);
             box-shadow: inset 0px 4px 28px 0px rgba(0, 0, 0, 0.25);
             background: linear-gradient(126.11deg, rgba(255, 180, 247, 1), rgba(255, 208, 222.50001525878906, 1) 13%, rgba(255, 236, 198, 1) 24%, rgba(255, 149, 236, 1) 38%, rgba(233, 140.50001525878906, 245.5, 1) 51%, rgba(142, 173, 255, 1) 67%, rgba(207.25, 156.87501525878906, 252.625, 1) 84%, rgba(255, 126, 246, 1) 93%);
             border-radius: 30px;
-            padding: 63px 113px;
+            padding: 63px 90px;
             position: relative;
 
             &:nth-of-type(2) {
-                margin-left: 410px;
+                margin-left: 345px;
             }
 
             &:nth-of-type(3) {
-                margin-left: 800px;
+                margin-left: 655px;
             }
 
             >p {
@@ -38,7 +40,7 @@
             }
 
             >span {
-                @include mixin.font(var(--black), var(--font-inclusive-sans), 50px);
+                @include mixin.font(var(--black), var(--font-inclusive-sans), 35px);
             }
 
             &::before {
@@ -54,24 +56,26 @@
             }
         }
 
+        >svg,
         >img {
             position: absolute;
+            z-index: -1;
 
             &:first-of-type {
 
                 top: 130px;
-                left: -327px;
+                left: -273px;
             }
 
             &:nth-of-type(2) {
                 top: 184px;
-                left: -302px;
+                left: -248px;
             }
         }
 
         >.background {
             position: absolute;
-            z-index: -1;
+            z-index: -2;
             left: -300px;
             top: 0;
             @include mixin.flex(center, center, row, nowrap, 47.7px);
@@ -113,7 +117,8 @@
 
         .stair {
             @include mixin.flex(end, end, column, nowrap, 35px);
-            // position: relative;
+            width: auto;
+            transform: none;
 
             >.card {
                 @include mixin.flex(start, end, column, nowrap, 10px);
@@ -146,6 +151,7 @@
 
             }
 
+            >svg,
             >img {
                 position: absolute;
 
@@ -161,34 +167,34 @@
                 }
             }
 
-                >.background {
-                    position: absolute;
-                    z-index: -1;
-                    left: -300px;
-                    top: -150px;
-                    @include mixin.flex(center, center, row, nowrap, 24.4px);
+            >.background {
+                position: absolute;
+                z-index: -2;
+                left: -300px;
+                top: -150px;
+                @include mixin.flex(center, center, row, nowrap, 24.4px);
 
-                    >.sound {
-                        @include mixin.flex(center, auto, row, nowrap, 24.4px);
+                >.sound {
+                    @include mixin.flex(center, auto, row, nowrap, 24.4px);
 
-                        >span {
-                            width: 13px;
-                            border-radius: 51.06px;
-                        }
+                    >span {
+                        width: 13px;
+                        border-radius: 51.06px;
+                    }
 
-                        &:first-of-type {
-                            transform: translateY(189px);
-                        }
+                    &:first-of-type {
+                        transform: translateY(189px);
+                    }
 
-                        &:nth-of-type(2) {
-                            transform: translateY(116px);
-                            margin-right: 0;
-                        }
+                    &:nth-of-type(2) {
+                        transform: translateY(116px);
+                        margin-right: 0;
+                    }
 
-                        &:nth-of-type(4) {
-                            transform: translateY(-160px);
-                        }
-                  }
+                    &:nth-of-type(4) {
+                        transform: translateY(-160px);
+                    }
+                }
             }
         }
     }

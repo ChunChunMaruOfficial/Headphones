@@ -3,7 +3,7 @@
 .parent {
     width: 100%;
     background: conic-gradient(from 172.18deg at -8% 47%, rgba(0, 0, 0, 1) 0deg, rgba(45, 104, 177, 1) 43.199999999999996deg, rgba(0, 0, 0, 1) 306deg, rgba(0, 0, 0, 1) 360deg, rgba(45, 104, 177, 1) 403.20000000000005deg);
-    @include mixin.flex(center, auto, column, nowrap, 0);
+    @include mixin.flex(center, center, column, nowrap, 0);
 
     >.top {
         margin: auto auto;
@@ -26,17 +26,18 @@
 
     .wrapper {
         position: relative;
-        max-width: 100%;
+        width: 100%;
+        max-width: 2311px;
 
         .vectors {
             position: relative;
             width: max-content;
-            max-width: 100%;
+            max-width: 2311px;
+            width: 100%;
 
-            >img:nth-of-type(2) {
+            >svg:nth-of-type(2) {
                 opacity: .7;
                 position: absolute;
-                top: 40px;
                 left: -20px;
             }
         }
@@ -45,7 +46,7 @@
             max-width: 749px;
             position: absolute;
             top: 93px;
-            left: 190px;
+            left: 60px;
 
             >div {
                 width: fit-content;
@@ -103,6 +104,7 @@
             >span {
                 @include mixin.flex(center, center, row, nowrap, 25px);
 
+                >svg,
                 >img {
                     display: none;
                 }
@@ -112,8 +114,9 @@
 
 
                     &:nth-of-type(1) {
-transform: translateX(4px);
+                        transform: translateX(4px);
                     }
+
                     &:nth-of-type(2) {
                         position: absolute;
                         right: 0;
@@ -125,17 +128,16 @@ transform: translateX(4px);
 
         .wrapper {
             .vectors {
-                width: max-content;
-                max-width: 150%;
+                width: 150%;
                 z-index: 1;
 
-                >img {
+                >svg {
                     height: min-content;
                     object-fit: cover;
                     width: 100%;
                 }
 
-                >img:nth-of-type(2) {
+                >svg:nth-of-type(2) {
                     opacity: .7;
                     position: absolute;
                     top: 10px;
@@ -176,6 +178,8 @@ transform: translateX(4px);
             }
 
             >span {
+
+                >svg,
                 >img {
                     filter: brightness(0.4);
                 }

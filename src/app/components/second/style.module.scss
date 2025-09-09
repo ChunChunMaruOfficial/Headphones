@@ -174,7 +174,7 @@
         transform: translateY(100px);
         width: 100%;
 
-        >img {
+        >svg {
             width: 100%;
         }
 
@@ -186,12 +186,12 @@
             position: absolute;
 
             &:nth-of-type(1) {
-                top: 63px;
+                top: 41px;
                 left: 474px;
             }
 
             &:nth-of-type(2) {
-                top: 306px;
+                top: 334px;
                 left: 1256px;
             }
         }
@@ -200,10 +200,10 @@
 
 @media (max-width: 768px) {
     .parent {
-        width: -moz-available;
         overflow-x: auto;
         overflow-y: hidden;
         height: auto;
+        width: 100%;
 
         .background {
             z-index: -1;
@@ -219,13 +219,14 @@
         }
 
         .container {
-            @include mixin.flex(start, start, row, nowrap, 341px);
-            padding: 19px 0 0 103px;
+            @include mixin.flex(start, start, row, nowrap, 440px);
+            padding: 19px 0 0 104px;
             width: fit-content;
 
             >div {
                 transform: translateY(55px);
-z-index: 2;
+                z-index: 2;
+
                 >div {
                     padding: 24px 32px;
 
@@ -243,9 +244,13 @@ z-index: 2;
                     }
                 }
 
-                &:nth-of-type(2),
+                &:nth-of-type(2) {
+                    transform: translate(-108px, 70px);
+
+                }
+
                 &:nth-of-type(3) {
-                    transform: translateY(55px);
+                    transform: translate(-217px, 70px);
                 }
             }
 
@@ -260,11 +265,14 @@ z-index: 2;
                 background-color: var(--white);
 
                 &:nth-of-type(3) {
-                    left: 224%;
+                    left: 260px;
                 }
 
                 &:nth-of-type(2) {
-                    left: 384%;
+                    left: 912px;
+                }
+                &:nth-of-type(1) {
+                    left: 1566px;
                 }
             }
         }
@@ -273,9 +281,10 @@ z-index: 2;
             position: relative;
             transform: translate(-50px, -200px);
             width: 100%;
+            width: 479%;
             @include mixin.flex(start, start, row, nowrap, 0);
 
-            >img {
+            >svg {
                 width: auto;
             }
 

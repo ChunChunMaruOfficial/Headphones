@@ -11,10 +11,10 @@ import secondvectorwrapper from '../../assets/svg/secondvectorwrapper.svg'
 import mobilecolor from '../../assets/svg/mobilecolor.svg'
 import mobilegray from '../../assets/svg/mobilegray.svg'
 
-import mobileline from '../../assets/svg/mobileline.svg'
+import Animatedmobileline from '../../assets/svg/animated/mobileline.jsx'
+import Animatedsecondvector6 from '../../assets/svg/animated/secondvector6.jsx'
 
-import secondvector6 from '../../assets/svg/secondvector6.svg'
-import { Fragment, useEffect, useState } from 'react';
+import { Fragment } from 'react';
 
 const ShowAnimation = {
     hidden: {
@@ -26,25 +26,12 @@ const ShowAnimation = {
     }),
 }
 
-export default function Second() {
-    const [imgformat, setimgformat] = useState({ wrapper: secondvectorwrapper, color: secondvectorcolor })
-    const [lineformat, setlineformat] = useState(secondvector6)
-
-    useEffect(() => {
-        if (window.innerWidth <= 768) {
-            setlineformat(mobileline)
-            setimgformat({ wrapper: mobilegray, color: mobilecolor })
-        } else {
-            setlineformat(secondvector6)
-            setimgformat({ wrapper: secondvectorwrapper, color: secondvectorcolor })
-        }
-    }, [])
-
+export default function Second({ismobile}:{ismobile: boolean}) {
     return (
         <div className={styles.parent}>
             <motion.div id='product' className={styles.background}>
-                <Image src={imgformat.color} alt="" />
-                <Image src={imgformat.wrapper} alt="" />
+                <Image src={ ismobile ?  mobilecolor : secondvectorcolor} alt="" />
+                <Image src={ismobile ?  mobilegray : secondvectorwrapper} alt="" />
             </motion.div>
             <motion.div viewport={{ amount: 0.2, once: true }} initial="hidden" whileInView="visible" className={styles.container}>
                 {[...Array(3)].map((_, i) => (
@@ -56,13 +43,13 @@ export default function Second() {
                                 <p>Microphones analyze ambient noise 1,000 times per second. The world around you quiets down when you need to concentrate, and returns gently for safety outdoors.</p>
                             </div>
                         </motion.div>
-                        {lineformat != secondvector6 && (<span></span>)}
+                        {ismobile && (<span></span>)}
                     </Fragment >
                 ))}
             </motion.div>
             <div className={styles.rodmap}>
-                {lineformat == secondvector6 ? (<Image src={lineformat} alt="" />) : [...Array(3)].map((_, i) => (
-                    <  Image src={lineformat} key={i} alt="" />
+                {!ismobile ? (<Animatedsecondvector6 />) : [...Array(3)].map((_, i) => (
+                    < Animatedmobileline key={i} />
                 ))}
 
 
