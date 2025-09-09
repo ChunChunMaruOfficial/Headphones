@@ -51,7 +51,7 @@ export default function Fourth() {
         <motion.div viewport={{ amount: 0.2, once: true }} initial="hidden" whileInView="visible" className={styles.parent}>
             <motion.h1 variants={HightAnimation}>READY TO REDEFINITION YOUR BOUNDARIES?</motion.h1>
             <div className={styles.content}>
-                <Image width={ismobile ? 380 : 1249} src={headphones2} alt='' />
+                <Image width={ismobile ? 340 : 1249} src={headphones2} alt='' />
                 {ismobile && (<span></span>)}
                 <div className={styles.sidepart}>
                     <motion.h2 custom={1} variants={TextAnimation}>Contact our audio consultant for a personal demonstration of the capabilities</motion.h2>

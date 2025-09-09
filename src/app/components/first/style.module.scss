@@ -93,7 +93,6 @@
 
             >h1 {
                 @include mixin.font(var(--white), var(--font-jockey-one), 120px, 400, 80%);
-                transform: translateX(-20px);
 
                 >span::before {
                     content: "\A";
@@ -109,12 +108,12 @@
                 }
 
                 >p {
-                    @include mixin.font(var(--white), var(--font-inclusive-sans), 20px);
+                    @include mixin.font(var(--white), var(--font-inclusive-sans), 16px);
+
 
                     &:nth-of-type(1) {
-                        transform: translateX(-15px);
+transform: translateX(4px);
                     }
-
                     &:nth-of-type(2) {
                         position: absolute;
                         right: 0;

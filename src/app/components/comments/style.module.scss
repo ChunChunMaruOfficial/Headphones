@@ -279,15 +279,11 @@
         }
 
         .content {
-            // transform-origin: center;
             @include mixin.flex(center, center, column-reverse, nowrap, 24px);
-            // width: 100%;
-
-            // height: min-content;
 
             >.comment {
                 border-radius: 14.09px;
-                padding: 87.35px 36.63px;
+                padding: 69.35px 36.63px;
                 width: 100%;
 
                 >span {
@@ -305,7 +301,7 @@
                 }
 
                 >p {
-                    @include mixin.font(var(--white), var(--font-inclusive-sans), 10px, 400, 120%);
+                    @include mixin.font(var(--white), var(--font-inclusive-sans), 15px, 400, 120%);
                 }
             }
 
