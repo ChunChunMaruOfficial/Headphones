@@ -2,11 +2,14 @@
 
 .parent {
     position: relative;
-    width: min-content;
-    overflow: auto;
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
     height: 1300px;
     margin-top: 26px;
+    max-width: 2645px;
     margin: auto;
+    @include mixin.flex(auto, auto, column, nowrap, 0);
 
     &::-webkit-scrollbar {
         width: 12px;
@@ -46,22 +49,34 @@
     scrollbar-color: #3c3c3c transparent;
     scrollbar-gutter: stable;
 
-    .background {
-        z-index: -1;
-        transform: translateX(-232px);
 
-        >* {
-            position: absolute;
-        }
-    }
+
 
     .container {
+        position: relative;
+
+        .background {
+            position: absolute;
+            z-index: -1;
+            top: 0;
+            left: 0;
+            width: 100%;
+            max-width: 2777px;
+
+            >* {
+                width: 100%;
+                max-width: 2777px;
+                position: absolute;
+            }
+        }
+
+
         @include mixin.flex(start, start, row, nowrap, 54px);
-        padding: 136px 0 0 196px;
+        padding: 136px 300px 0 196px;
         width: fit-content;
 
-        >div {
-
+        >.card {
+            width: 700px;
 
             >div {
                 border-radius: 30px;
@@ -80,6 +95,7 @@
                 display: flex;
                 justify-content: center;
                 align-items: center;
+                width: 100%;
 
                 &::before {
                     content: '';
@@ -102,7 +118,7 @@
                 }
 
                 >div {
-                    padding: 81px 87px;
+                    padding: 81px 108px;
                     background: none;
                     border: none;
                     outline: none;
@@ -121,13 +137,14 @@
                     }
 
                     >h2 {
-                        @include mixin.font(var(--white), var(--font-jockey-one), 50px);
+                        @include mixin.font(var(--white), var(--font-jockey-one), 35px);
                         margin-bottom: 147px;
-                        text-wrap: nowrap
+                        text-wrap: nowrap;
+                        text-transform: uppercase;
                     }
 
                     >p {
-                        @include mixin.font(var(--white), var(--font-inclusive-sans), 30px);
+                        @include mixin.font(var(--white), var(--font-inclusive-sans), 25px);
 
                         &:nth-of-type(1) {
                             margin-bottom: 50px;
@@ -163,43 +180,55 @@
                         transparent);
             }
 
-            &:nth-of-type(1) {
+            &:nth-of-type(2) {
                 transform: translateY(75px)
             }
 
-            &:nth-of-type(2) {
+            &:nth-of-type(3) {
                 transform: translateY(354px)
             }
         }
-    }
 
-    .rodmap {
-        position: relative;
-        transform: translateY(100px);
-        width: 100%;
-
-        >svg {
-            width: 100%;
-        }
-
-        >div {
-            background: rgba(255, 255, 255, 1);
-            width: 55px;
-            height: 55px;
-            border-radius: 100%;
+        .rodmap {
             position: absolute;
+            width: 100%;
+            max-width: 2777px;
+            top: 828px;
+            left: -70px;
 
-            &:nth-of-type(1) {
-                top: 41px;
-                left: 474px;
+            >svg {
+                width: 100%;
             }
 
-            &:nth-of-type(2) {
-                top: 334px;
-                left: 1256px;
+            >div {
+                background: rgba(255, 255, 255, 1);
+                width: 55px;
+                height: 55px;
+                border-radius: 100%;
+                position: absolute;
+                transform: scale(0);
+                animation: show .3s ease-in-out forwards .8s;
+
+                &:nth-of-type(1) {
+                    top: 51px;
+                    left: 598px;
+
+                }
+
+                &:nth-of-type(2) {
+                    top: 381px;
+                    left: 2137px;
+                }
+
+                &:nth-of-type(3) {
+                    top: 382px;
+                    left: 1331px;
+                }
             }
         }
     }
+
+
 }
 
 @media (max-width: 768px) {
@@ -208,6 +237,7 @@
         overflow-y: hidden;
         height: auto;
         width: 100%;
+        margin-bottom: 120px;
 
         .background {
             z-index: -1;
@@ -223,12 +253,14 @@
         }
 
         .container {
-            @include mixin.flex(start, start, row, nowrap, 270px);
+            @include mixin.flex(start, start, row, nowrap, 218px);
             padding: 19px 0 0 90px;
             width: fit-content;
+            transform: translateY(10%);
 
-            >div {
+            >.card {
 
+                width: auto;
 
                 >div {
                     transform: translateY(-55px);
@@ -243,7 +275,7 @@
                         }
 
                         >p {
-                            @include mixin.font(var(--white), var(--font-inclusive-sans), 14px);
+                            @include mixin.font(var(--white), var(--font-inclusive-sans), 14px, 400, 150%);
 
                             &:nth-of-type(1) {
                                 margin-bottom: 47px;
@@ -267,45 +299,63 @@
 
                 >svg {
                     z-index: 5;
-                    width: 200%;
-                    transform: translate(-24%, -69%);
+                    width: 175%;
+                    transform: translate(-20%, -69%);
                 }
 
-                                    &:nth-of-type(1) {
-                        transform: none;
-                    }
-
-                    &:nth-of-type(2) {
-                        transform: none;
-                    }
-            }
-        }
-
-        .rodmap {
-            position: relative;
-            transform: translate(-50px, -200px);
-            width: 100%;
-            @include mixin.flex(start, start, row, nowrap, 0);
-
-            >div {
-                width: 25px;
-                height: 25px;
-
                 &:nth-of-type(1) {
-                    top: 6px;
-                    left: 260px;
+                    transform: none;
                 }
 
                 &:nth-of-type(2) {
-                    top: 6px;
-                    left: 800px;
+                    transform: none;
                 }
 
                 &:nth-of-type(3) {
-                    top: 6px;
-                    left: 1341px;
+                    transform: none
                 }
             }
+
+            >.rodmap {
+                transform: translate(-50px, -200px);
+                width: 100%;
+                @include mixin.flex(start, start, row, nowrap, 0);
+
+                >div {
+                    position: absolute;
+                    width: 25px;
+                    height: 25px;
+
+
+
+                    &:nth-of-type(1) {
+                        top: -181px;
+                        left: 349px;
+                    }
+
+                    &:nth-of-type(2) {
+                        top: -181px;
+                        left: 858px;
+                    }
+
+                    &:nth-of-type(3) {
+                        top: -181px;
+                        left: 1359px;
+                    }
+                }
+            }
+
         }
     }
+}
+
+@keyframes show {
+    from {
+        transform: scale(0);
+    }
+
+    to {
+        transform: scale(1);
+    }
+
 }

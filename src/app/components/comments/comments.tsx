@@ -22,10 +22,10 @@ export default function Comments({ ismobile }: { ismobile: boolean }) {
   const animationRef = useRef<number>(0);
   const particlesInitializedRef = useRef(false);
 
-  const [stopped1, setStopped1] = useState(false);
-  const [stopped2, setStopped2] = useState(false);
-  const [stopped3, setStopped3] = useState(false);
-  const [stopped4, setStopped4] = useState(false);
+  const [s1, setStopped1] = useState(false);
+  const [s2, setStopped2] = useState(false);
+  const [s3, setStopped3] = useState(false);
+  const [s4, setStopped4] = useState(false);
 
   const initParticles = useCallback(() => {
     if (particlesInitializedRef.current) return particlesRef.current;
@@ -118,13 +118,16 @@ export default function Comments({ ismobile }: { ismobile: boolean }) {
 
   return (
     <div className={styles.parent}>
-      <h1>Sound that was appreciated</h1>
-      <div className={styles.content}>
+      <span>
+        <h1>Sound that was appreciated</h1>
+        <p>click to collect all parts of the comment</p>
+      </span>
+      <div className={s1 && s2 && s3 && s4 ? styles.content + ' ' + styles.done : styles.content}>
         <motion.div
           className={styles.comment}
           initial={ismobile ? { x: '70%', y: '82%' } : { x: '130%', y: '-42%' }}
           animate={
-            stopped4
+            s4
               ? { x: 0, y: 0, rotate: 0 }
               : {
                 y: ismobile ? ['82%', '72%', '82%'] : ['-42%', '-52%', '-42%'],
@@ -133,7 +136,7 @@ export default function Comments({ ismobile }: { ismobile: boolean }) {
               }
           }
           transition={
-            stopped4
+            s4
               ? { duration: 0.5, ease: "easeOut" }
               : {
                 y: {
@@ -150,10 +153,7 @@ export default function Comments({ ismobile }: { ismobile: boolean }) {
                 }
               }
           }
-          onClick={() => setStopped4(true)}
-
-
-        >
+          onClick={() => setStopped4(true)}>
           <span>
             <Image alt='' src={comma} />
             <Image alt='' src={comma} />
@@ -166,7 +166,7 @@ export default function Comments({ ismobile }: { ismobile: boolean }) {
             <motion.span
               initial={ismobile ? { x: '170%', y: '-40%' } : { x: '-75%', y: '140%' }}
               animate={
-                stopped1
+                s1
                   ? { x: 0, y: 0, rotate: 0 }
                   : {
                     y: ismobile ? ['-40%', '-55%', '-40%'] : ['140%', '125%', '140%'],
@@ -175,7 +175,7 @@ export default function Comments({ ismobile }: { ismobile: boolean }) {
                   }
               }
               transition={
-                stopped1
+                s1
                   ? { duration: 0.5, ease: "easeOut" }
                   : {
                     y: {
@@ -196,7 +196,7 @@ export default function Comments({ ismobile }: { ismobile: boolean }) {
 
             <motion.div initial={ismobile ? { x: '-150%', y: '100%' } : { x: '-250%', y: '-50%' }}
               animate={
-                stopped2
+                s2
                   ? { x: 0, y: 0, rotate: 0 }
                   : {
                     y: ismobile ? ['100%', '82%', '100%'] : ['-50%', '-68%', '-50%'],
@@ -205,7 +205,7 @@ export default function Comments({ ismobile }: { ismobile: boolean }) {
                   }
               }
               transition={
-                stopped2
+                s2
                   ? { duration: 0.5, ease: "easeOut" }
                   : {
                     y: {
@@ -227,7 +227,7 @@ export default function Comments({ ismobile }: { ismobile: boolean }) {
           <motion.div
             initial={ismobile ? { x: '-30%', y: '250%' } : { x: '-180%', y: '130%' }}
             animate={
-              stopped3
+              s3
                 ? { x: 0, y: 0, rotate: 0 }
                 : {
                   y: ismobile ? ['250%', '238%', '250%'] : ['130%', '118%', '130%'],
@@ -236,7 +236,7 @@ export default function Comments({ ismobile }: { ismobile: boolean }) {
                 }
             }
             transition={
-              stopped3
+              s3
                 ? { duration: 0.5, ease: "easeOut" }
                 : {
                   y: {

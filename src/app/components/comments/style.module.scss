@@ -26,15 +26,23 @@
                 rgba(0, 0, 0, 0.8) 100%);
     }
 
-    >h1 {
+    >span {
         text-align: center;
         position: absolute;
         left: 50%;
         transform: translateX(-50%);
         top: -272px;
-        text-wrap: nowrap;
-        text-transform: uppercase;
-        @include mixin.font(var(--white), var(--roboto), 100px, 900);
+
+        >h1 {
+            text-wrap: nowrap;
+            text-transform: uppercase;
+            @include mixin.font(var(--white), var(--roboto), 100px, 900);
+        }
+
+        >p {
+            margin-top: 20px;
+            @include mixin.font(rgb(58, 58, 58), var(--roboto), 32px);
+        }
     }
 
     >button {
@@ -123,7 +131,7 @@
             >.down {
                 @include mixin.flex(center, center, column, nowrap, 8.5px);
                 width: 100%;
-                padding-block: 46px;
+                padding-block: 56px;
                 background-color: var(--white);
                 border-radius: 30px;
 
@@ -138,15 +146,43 @@
                 }
             }
         }
+
+        &.done {
+            animation: done .3s ease-in-out forwards .6s
+        }
+    }
+}
+
+
+
+@keyframes done {
+    0% {
+        transform: translate(-50%, -50%) scale(1);
+    }
+
+    50% {
+        transform: translate(-50%, -50%) scale(1.04);
+    }
+
+    100%{
+       transform: translate(-50%, -50%) scale(1);
     }
 }
 
 @media (max-width: 768px) {
     .parent {
-        >h1 {
-            @include mixin.font(var(--white), var(--roboto), 40px, 900);
-            width: 90%;
-            text-wrap: wrap;
+        >span {
+
+            >h1 {
+                @include mixin.font(var(--white), var(--roboto), 40px, 900);
+                width: 90%;
+                text-wrap: wrap;
+            }
+
+            >p {
+                margin-top: 20px;
+                @include mixin.font(rgb(58, 58, 58), var(--roboto), 16px);
+            }
         }
 
         .content {
@@ -206,9 +242,7 @@
                         @include mixin.font(var(--black), var(--font-inclusive-sans), 10px);
 
                     }
-
                 }
-
             }
         }
     }
