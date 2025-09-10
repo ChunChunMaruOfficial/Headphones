@@ -101,14 +101,6 @@
                     mask-composite: exclude;
                 }
 
-                &:nth-of-type(1) {
-                    transform: translateY(75px)
-                }
-
-                &:nth-of-type(2) {
-                    transform: translateY(354px)
-                }
-
                 >div {
                     padding: 81px 87px;
                     background: none;
@@ -169,6 +161,14 @@
                         transparent,
                         rgba(255, 255, 255, 0.8),
                         transparent);
+            }
+
+            &:nth-of-type(1) {
+                transform: translateY(75px)
+            }
+
+            &:nth-of-type(2) {
+                transform: translateY(354px)
             }
         }
     }
@@ -270,6 +270,14 @@
                     width: 200%;
                     transform: translate(-24%, -69%);
                 }
+
+                                    &:nth-of-type(1) {
+                        transform: none;
+                    }
+
+                    &:nth-of-type(2) {
+                        transform: none;
+                    }
             }
         }
 
@@ -277,22 +285,22 @@
             position: relative;
             transform: translate(-50px, -200px);
             width: 100%;
-            width: 479%;
             @include mixin.flex(start, start, row, nowrap, 0);
 
             >div {
                 width: 25px;
                 height: 25px;
-                
+
                 &:nth-of-type(1) {
                     top: 6px;
                     left: 260px;
                 }
-                
+
                 &:nth-of-type(2) {
                     top: 6px;
                     left: 800px;
                 }
+
                 &:nth-of-type(3) {
                     top: 6px;
                     left: 1341px;

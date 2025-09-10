@@ -44,7 +44,7 @@ export default function Second({ ismobile }: { ismobile: boolean }) {
                                     <p>Microphones analyze ambient noise 1,000 times per second. The world around you quiets down when you need to concentrate, and returns gently for safety outdoors.</p>
                                 </div>
                             </motion.div>
-                            < Animatedmobileline key={i} />
+                           { ismobile && < Animatedmobileline key={i} />}
                         </div>
                     </Fragment >
                 ))}

@@ -16,9 +16,8 @@ interface Particle {
   color: string;
 }
 
-export default function Comments() {
+export default function Comments({ ismobile }: { ismobile: boolean }) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const [isalive, setisalive] = useState(true);
   const particlesRef = useRef<Particle[]>([]);
   const animationRef = useRef<number>(0);
   const particlesInitializedRef = useRef(false);
@@ -31,7 +30,7 @@ export default function Comments() {
   const initParticles = useCallback(() => {
     if (particlesInitializedRef.current) return particlesRef.current;
 
-    const particles: Particle[] = [];
+    const particles: { x: number, y: number, vx: number, vy: number, radius: number, alpha: number, color: string }[] = [];
     const canvas = canvasRef.current;
     if (!canvas) return particles;
 
@@ -72,54 +71,18 @@ export default function Comments() {
     const canvas = canvasRef.current;
     if (!canvas) return;
 
-    const centerX = canvas.width / 2;
-    const centerY = canvas.height / 2;
-
     particlesRef.current.forEach(particle => {
-      if (isalive) {
-        particle.x += particle.vx;
-        particle.y += particle.vy;
+      particle.x += particle.vx;
+      particle.y += particle.vy;
 
-        particle.vx += (Math.random() - 0.5) * 0.1;
-        particle.vy += (Math.random() - 0.5) * 0.1;
-
-        const maxSpeed = 27;
-        const speed = Math.sqrt(particle.vx * particle.vx + particle.vy * particle.vy);
-        if (speed > maxSpeed) {
-          particle.vx = (particle.vx / speed) * maxSpeed;
-          particle.vy = (particle.vy / speed) * maxSpeed;
-        }
-
-        if (particle.x < 0 || particle.x > canvas.width) particle.vx *= -1;
-        if (particle.y < 0 || particle.y > canvas.height) particle.vy *= -1;
-      } else {
-
-        const dx = centerX - particle.x;
-        const dy = centerY - particle.y;
-        const distance = Math.sqrt(dx * dx + dy * dy);
-
-        const speed = 2;
-        particle.vx = (dx / distance) * speed;
-        particle.vy = (dy / distance) * speed;
-
-        particle.x += particle.vx;
-        particle.y += particle.vy;
-
-
-        if (distance < 20) {
-          const angle = Math.random() * Math.PI * 2;
-          const force = 2 + Math.random() * 3;
-          particle.vx = Math.cos(angle) * force;
-          particle.vy = Math.sin(angle) * force;
-        }
-      }
+      if (particle.x < 0 || particle.x > canvas.width) particle.vx *= -1;
+      if (particle.y < 0 || particle.y > canvas.height) particle.vy *= -1;
     });
-  }, [isalive]);
+  }, []);
 
   const animate = useCallback(() => {
     updateParticles();
     drawParticles();
-
     animationRef.current = requestAnimationFrame(animate);
   }, [updateParticles, drawParticles]);
 
@@ -127,8 +90,12 @@ export default function Comments() {
     const canvas = canvasRef.current;
     if (!canvas) return;
 
-    canvas.width = canvas.offsetWidth;
-    canvas.height = canvas.offsetHeight;
+    const resizeCanvas = () => {
+      canvas.width = canvas.offsetWidth;
+      canvas.height = canvas.offsetHeight;
+    };
+
+    resizeCanvas();
 
     if (!particlesInitializedRef.current) {
       particlesRef.current = initParticles();
@@ -136,57 +103,33 @@ export default function Comments() {
 
     animate();
 
-    return () => {
-      cancelAnimationFrame(animationRef.current);
-    };
-  }, [initParticles, animate]);
-
-  useEffect(() => {
     const handleResize = () => {
-      const canvas = canvasRef.current;
-      if (!canvas) return;
-
-      canvas.width = canvas.offsetWidth;
-      canvas.height = canvas.offsetHeight;
+      resizeCanvas();
       drawParticles();
     };
 
     window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, [drawParticles]);
 
-  const handleToggle = () => {
-    setisalive(prev => !prev);
-  };
-
-
-  const [ismobile, setismobile] = useState(false)
-
-  useEffect(() => {
-    if (window.innerWidth <= 768) {
-      setismobile(true)
-
-    } else {
-      setismobile(false)
-
-    }
-  }, [])
+    return () => {
+      cancelAnimationFrame(animationRef.current);
+      window.removeEventListener('resize', handleResize);
+    };
+  }, [initParticles, animate, drawParticles]);
 
   return (
-    <div onClick={handleToggle} className={styles.parent}>
+    <div className={styles.parent}>
       <h1>Sound that was appreciated</h1>
       <div className={styles.content}>
-        {/* <div  className={isalive ? styles.content + ' ' + styles.isdead : styles.content + ' ' + styles.isalive}> */}
         <motion.div
           className={styles.comment}
-          initial={{ x: '70%', y: '82%' }}
+          initial={ismobile ? { x: '70%', y: '82%' } : { x: '130%', y: '-42%' }}
           animate={
             stopped4
               ? { x: 0, y: 0, rotate: 0 }
               : {
-                y: [0, -20, 0],
+                y: ismobile ? ['82%', '72%', '82%'] : ['-42%', '-52%', '-42%'],
                 rotate: [0, -6, 0, 5, 0],
-                x: '70%'
+                x: ismobile ? '70%' : '130%'
               }
           }
           transition={
@@ -221,14 +164,14 @@ export default function Comments() {
           <div className={styles.top}>
 
             <motion.span
-              initial={{ x: '170%', y: '-40%' }}
+              initial={ismobile ? { x: '170%', y: '-40%' } : { x: '-75%', y: '140%' }}
               animate={
                 stopped1
                   ? { x: 0, y: 0, rotate: 0 }
                   : {
-                    y: [0, -15, 0],
+                    y: ismobile ? ['-40%', '-55%', '-40%'] : ['140%', '125%', '140%'],
                     rotate: [0, -4, 0, 3, 0],
-                    x: '170%'
+                    x: ismobile ? '170%' : '-75%'
                   }
               }
               transition={
@@ -251,14 +194,14 @@ export default function Comments() {
               <Image height={ismobile ? 160 : 350} width={ismobile ? 160 : 350} src={aman} alt='' />
             </motion.span>
 
-            <motion.div initial={{ x: '-150%', y: '100%' }}
+            <motion.div initial={ismobile ? { x: '-150%', y: '100%' } : { x: '-250%', y: '-50%' }}
               animate={
                 stopped2
                   ? { x: 0, y: 0, rotate: 0 }
                   : {
-                    y: [0, -18, 0],
+                    y: ismobile ? ['100%', '82%', '100%'] : ['-50%', '-68%', '-50%'],
                     rotate: [0, -5, 0, 4, 0],
-                    x: '-150%'
+                    x: ismobile ? '-150%' : '-250%'
                   }
               }
               transition={
@@ -282,14 +225,14 @@ export default function Comments() {
               onClick={() => setStopped2(true)}>the best</motion.div>
           </div>
           <motion.div
-            initial={{ x: '-30%', y: '250%' }}
+            initial={ismobile ? { x: '-30%', y: '250%' } : { x: '-180%', y: '130%' }}
             animate={
               stopped3
                 ? { x: 0, y: 0, rotate: 0 }
                 : {
-                  y: [0, -12, 0],
+                  y: ismobile ? ['250%', '238%', '250%'] : ['130%', '118%', '130%'],
                   rotate: [0, -3, 0, 2, 0],
-                  x: '-30%'
+                  x: ismobile ? '-30%' : '-180%'
                 }
             }
             transition={

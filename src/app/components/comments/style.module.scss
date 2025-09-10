@@ -178,9 +178,11 @@
 
             >.bio {
                 @include mixin.flex(center, center, column, nowrap, 13px);
+                width: 100%;
 
                 >.top {
                     @include mixin.flex(flex-start, center, row, nowrap, 20px);
+                    width: 100%;
 
                     >div {
                         padding: 70px 46.50px;

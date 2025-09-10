@@ -27,7 +27,7 @@ export default function Home() {
       <Second ismobile={ismobile} />
       <Third ismobile={ismobile}/>
       <Idealsound ismobile={ismobile} />
-      <Comments />
+      <Comments ismobile={ismobile}/>
       <Fourth />
     </div>
   );
