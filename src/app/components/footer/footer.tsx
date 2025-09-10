@@ -4,8 +4,8 @@ import styles from './style.module.scss'
 import Image from 'next/image'
 import telegramimg from '../../assets/svg/telegram.svg'
 
-import footerline from '../../assets/svg/footerline.svg'
-import mobilefooter from '../../assets/svg/mobilefooter.svg'
+import Animatedfooterline from '../../assets/svg/animated/footerline.jsx'
+import Animatedmobilefooter from '../../assets/svg/animated/mobilefooter.jsx'
 
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
@@ -29,7 +29,7 @@ export default function Footer() {
     const array: string[] = ['pdf', 'txt', 'web']
     return (
         <motion.div id='contacts' className={styles.parent}>
-            <Image src={ismobile ? mobilefooter : footerline} alt='' />
+            {ismobile ? <Animatedmobilefooter /> : <Animatedfooterline />}
             <div>
                 <h1>contact</h1>
                 <a href="#">POCHTA@GMAIL.com</a>
@@ -40,7 +40,7 @@ export default function Footer() {
             </div>
             <div>
                 <h1>catalog</h1>
-                <span>{array.map((v,i)=> (<a key={i} href='#'>{v}</a>))}</span>
+                <span>{array.map((v, i) => (<a key={i} href='#'>{v}</a>))}</span>
             </div>
         </motion.div>
     )
