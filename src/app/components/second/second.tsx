@@ -26,34 +26,34 @@ const ShowAnimation = {
     }),
 }
 
-export default function Second({ismobile}:{ismobile: boolean}) {
+export default function Second({ ismobile }: { ismobile: boolean }) {
     return (
         <div className={styles.parent}>
             <motion.div id='product' className={styles.background}>
-                <Image src={ ismobile ?  mobilecolor : secondvectorcolor} alt="" />
-                <Image src={ismobile ?  mobilegray : secondvectorwrapper} alt="" />
+                <Image src={ismobile ? mobilecolor : secondvectorcolor} alt="" />
+                <Image src={ismobile ? mobilegray : secondvectorwrapper} alt="" />
             </motion.div>
             <motion.div viewport={{ amount: 0.2, once: true }} initial="hidden" whileInView="visible" className={styles.container}>
                 {[...Array(3)].map((_, i) => (
                     <Fragment key={i} >
-                        <motion.div custom={i + 1} variants={ShowAnimation}>
-                            <div>
-                                <h2>Adaptive Noise Cancellation</h2>
-                                <p>Smart silence</p>
-                                <p>Microphones analyze ambient noise 1,000 times per second. The world around you quiets down when you need to concentrate, and returns gently for safety outdoors.</p>
-                            </div>
-                        </motion.div>
-                        {ismobile && (<span></span>)}
+                        <div>
+                            <motion.div custom={i + 1} variants={ShowAnimation}>
+                                <div>
+                                    <h2>Adaptive Noise Cancellation</h2>
+                                    <p>Smart silence</p>
+                                    <p>Microphones analyze ambient noise 1,000 times per second. The world around you quiets down when you need to concentrate, and returns gently for safety outdoors.</p>
+                                </div>
+                            </motion.div>
+                            < Animatedmobileline key={i} />
+                        </div>
                     </Fragment >
                 ))}
             </motion.div>
             <div className={styles.rodmap}>
-                {!ismobile ? (<Animatedsecondvector6 />) : [...Array(3)].map((_, i) => (
-                    < Animatedmobileline key={i} />
-                ))}
+                {!ismobile && (<Animatedsecondvector6 />)}
 
 
-                {[...Array(2)].map((_, i) => (
+                {[...Array(ismobile ? 3 : 2)].map((_, i) => (
                     <div key={i}></div>
                 ))}
             </div>

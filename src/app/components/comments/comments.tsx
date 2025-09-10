@@ -4,7 +4,7 @@ import comma from '../../assets/svg/comma.svg'
 import Image from "next/image";
 import aman from '../../assets/img/aman.png'
 import commentline from '../../assets/svg/commentline.svg'
-
+import { motion } from 'framer-motion';
 
 interface Particle {
   x: number;
@@ -22,6 +22,11 @@ export default function Comments() {
   const particlesRef = useRef<Particle[]>([]);
   const animationRef = useRef<number>(0);
   const particlesInitializedRef = useRef(false);
+
+  const [stopped1, setStopped1] = useState(false);
+  const [stopped2, setStopped2] = useState(false);
+  const [stopped3, setStopped3] = useState(false);
+  const [stopped4, setStopped4] = useState(false);
 
   const initParticles = useCallback(() => {
     if (particlesInitializedRef.current) return particlesRef.current;
@@ -170,26 +175,146 @@ export default function Comments() {
   return (
     <div onClick={handleToggle} className={styles.parent}>
       <h1>Sound that was appreciated</h1>
-      <div  className={isalive ? styles.content + ' ' + styles.isdead : styles.content + ' ' + styles.isalive}>
-        <div className={styles.comment}>
+      <div className={styles.content}>
+        {/* <div  className={isalive ? styles.content + ' ' + styles.isdead : styles.content + ' ' + styles.isalive}> */}
+        <motion.div
+          className={styles.comment}
+          initial={{ x: '70%', y: '82%' }}
+          animate={
+            stopped4
+              ? { x: 0, y: 0, rotate: 0 }
+              : {
+                y: [0, -20, 0],
+                rotate: [0, -6, 0, 5, 0],
+                x: '70%'
+              }
+          }
+          transition={
+            stopped4
+              ? { duration: 0.5, ease: "easeOut" }
+              : {
+                y: {
+                  duration: 4.2,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: 1.2
+                },
+                rotate: {
+                  duration: 6.0,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: 0.7
+                }
+              }
+          }
+          onClick={() => setStopped4(true)}
+
+
+        >
           <span>
             <Image alt='' src={comma} />
             <Image alt='' src={comma} />
           </span>
           <p>Finally, studio monitoring that doesn&apos;t tie you to your chair. Low-end detail is impeccable, and highs are crystal clear, without a single note of fatigue. This is exactly the tool I was looking for to mix my new album.</p>
-        </div>
+        </motion.div>
         <div className={styles.bio}>
           <div className={styles.top}>
-            <Image height={ismobile ? 160 : 350} width={ismobile ? 160 : 350} src={aman} alt='' />
-            <div>the best</div>
+
+            <motion.span
+              initial={{ x: '170%', y: '-40%' }}
+              animate={
+                stopped1
+                  ? { x: 0, y: 0, rotate: 0 }
+                  : {
+                    y: [0, -15, 0],
+                    rotate: [0, -4, 0, 3, 0],
+                    x: '170%'
+                  }
+              }
+              transition={
+                stopped1
+                  ? { duration: 0.5, ease: "easeOut" }
+                  : {
+                    y: {
+                      duration: 3.2,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                    },
+                    rotate: {
+                      duration: 4.8,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                    }
+                  }
+              }
+              onClick={() => setStopped1(true)}>
+              <Image height={ismobile ? 160 : 350} width={ismobile ? 160 : 350} src={aman} alt='' />
+            </motion.span>
+
+            <motion.div initial={{ x: '-150%', y: '100%' }}
+              animate={
+                stopped2
+                  ? { x: 0, y: 0, rotate: 0 }
+                  : {
+                    y: [0, -18, 0],
+                    rotate: [0, -5, 0, 4, 0],
+                    x: '-150%'
+                  }
+              }
+              transition={
+                stopped2
+                  ? { duration: 0.5, ease: "easeOut" }
+                  : {
+                    y: {
+                      duration: 3.8,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                      delay: 0.5
+                    },
+                    rotate: {
+                      duration: 5.5,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                      delay: 0.3
+                    }
+                  }
+              }
+              onClick={() => setStopped2(true)}>the best</motion.div>
           </div>
-          <div className={styles.down}>
+          <motion.div
+            initial={{ x: '-30%', y: '250%' }}
+            animate={
+              stopped3
+                ? { x: 0, y: 0, rotate: 0 }
+                : {
+                  y: [0, -12, 0],
+                  rotate: [0, -3, 0, 2, 0],
+                  x: '-30%'
+                }
+            }
+            transition={
+              stopped3
+                ? { duration: 0.5, ease: "easeOut" }
+                : {
+                  y: {
+                    duration: 2.9,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                    delay: 0.8
+                  },
+                  rotate: {
+                    duration: 4.2,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                    delay: 1.0
+                  }
+                }
+            }
+            onClick={() => setStopped3(true)} className={styles.down}>
             <h1>Georg Handson</h1>
-
             <Image src={commentline} alt='' />
-
             <p>Sound producer</p>
-          </div>
+          </motion.div>
         </div>
       </div>
       <canvas

@@ -56,50 +56,10 @@
         position: absolute;
         top: 50%;
         left: 50%;
-        transform: translate(-50%, -50%) scale(0);
+        transform: translate(-50%, -50%);
         transform-origin: center;
         @include mixin.flex(center, center, row, nowrap, 42px);
         width: 100%;
-        background-color: black;
-
-        &.isalive {
-            animation: show 3s forwards ease-in-out;
-
-            >div {
-                &:first-of-type>* {
-                    animation: showopacity 3s forwards ease-in-out;
-                }
-
-                &:nth-of-type(2)>div:nth-of-type(2)>* {
-                    animation: showopacity 3s forwards ease-in-out;
-                }
-
-                .top>*::after {
-                    animation: showwhite 3s forwards ease-in-out;
-                }
-            }
-        }
-
-        &.isdead {
-            >div {
-                &:first-of-type>* {
-                    animation: hideopacity 3s forwards ease-in-out;
-                }
-
-                &:nth-of-type(2)>div:nth-of-type(2)>* {
-                    animation: hideopacity 3s forwards ease-in-out;
-                }
-
-                .top>*::after {
-                    animation: hidewhite 3s forwards ease-in-out;
-                }
-            }
-
-            animation: hide 3s forwards ease-in-out;
-
-        }
-
-
 
         height: min-content;
 
@@ -131,28 +91,19 @@
         >.bio {
             @include mixin.flex(center, center, column, nowrap, 29px);
 
-            >.top>div::after {
-                content: "";
-                position: absolute;
-                left: 0;
-                top: 0;
-                width: 100%;
-                height: 100%;
-                background-color: var(--white);
-                border-radius: 30px;
-                z-index: 2;
-            }
-
             >.top {
                 @include mixin.flex(flex-start, center, row, nowrap, 42px);
                 flex: 1;
 
-                >img {
-                    height: 100%;
-                    aspect-ratio: 1/1;
-                    object-fit: cover;
-                    z-index: 0;
-                    color: white;
+                >span {
+
+                    >img {
+                        height: 100%;
+                        aspect-ratio: 1/1;
+                        object-fit: cover;
+                        z-index: 0;
+                        color: white;
+                    }
                 }
 
                 >div {
@@ -185,88 +136,8 @@
                     @include mixin.font(var(--black), var(--font-inclusive-sans), 30px);
 
                 }
-
             }
-
         }
-    }
-
-}
-
-@keyframes show {
-    from {
-        transform: translate(-50%, -50%) scale(0);
-    }
-
-    to {
-        transform: translate(-50%, -50%) scale(1);
-    }
-}
-
-@keyframes hide {
-    from {
-
-        transform: translate(-50%, -50%) scale(1);
-    }
-
-    to {
-        transform: translate(-50%, -50%) scale(0);
-    }
-}
-
-@keyframes showopacity {
-    0% {
-        opacity: 0;
-    }
-
-    80% {
-        opacity: 0;
-    }
-
-    100% {
-        opacity: 1;
-    }
-}
-
-@keyframes hideopacity {
-    0% {
-        opacity: 1;
-    }
-
-    30% {
-        opacity: 0;
-    }
-
-    100% {
-        opacity: 0;
-    }
-}
-
-@keyframes showwhite {
-    0% {
-        background-color: var(--white);
-    }
-
-    80% {
-        background-color: var(--white);
-    }
-
-    100% {
-        background-color: rgba(0, 0, 0, 0);
-    }
-}
-
-@keyframes hidewhite {
-    0% {
-        background-color: rgba(0, 0, 0, 0);
-    }
-
-    30% {
-        background-color: var(--white);
-    }
-
-    100% {
-        background-color: var(--white);
     }
 }
 
@@ -287,7 +158,7 @@
                 width: 100%;
 
                 >span {
-                   
+
                     top: 0;
                     left: 26px;
 
@@ -295,8 +166,8 @@
                         margin-right: 3.9px;
                     }
 
-                    >img{
-                         width: 20px;
+                    >img {
+                        width: 20px;
                     }
                 }
 

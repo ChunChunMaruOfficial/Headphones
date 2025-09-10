@@ -112,13 +112,15 @@
 
         >h1 {
             @include mixin.font(var(--white), var(--roboto), 40px, 900);
-            text-align: center
+            text-align: center;
+            width: 95%;
         }
 
         .stair {
             @include mixin.flex(end, end, column, nowrap, 35px);
             width: auto;
             transform: none;
+            padding-right: 10px;
 
             >.card {
                 @include mixin.flex(start, end, column, nowrap, 10px);
