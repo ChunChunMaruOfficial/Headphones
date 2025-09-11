@@ -124,7 +124,7 @@
                 >button {
                     padding: 12px 140px;
                     border-radius: 36.49px;
-                    @include mixin.font(var(--black), var(--roboto), 38px);
+                    @include mixin.font(var(--black), var(--roboto), 38px,900);
                 }
             }
 
@@ -228,7 +228,7 @@
                 >button {
                     padding: 5px 80px;
                     border-radius: 36.49px;
-                    @include mixin.font(var(--black), var(--roboto), 16px);
+                    @include mixin.font(var(--black), var(--roboto), 16px,900);
                 }
             }
 
