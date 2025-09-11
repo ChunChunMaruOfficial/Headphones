@@ -4,6 +4,7 @@
     width: 100%;
     background: conic-gradient(from 172.18deg at -8% 47%, rgba(0, 0, 0, 1) 0deg, rgba(45, 104, 177, 1) 43.199999999999996deg, rgba(0, 0, 0, 1) 306deg, rgba(0, 0, 0, 1) 360deg, rgba(45, 104, 177, 1) 403.20000000000005deg);
     @include mixin.flex(center, center, column, nowrap, 0);
+    margin-bottom: 50px;
 
     >.top {
         margin: auto auto;
@@ -83,7 +84,7 @@
     }
 }
 
-@media (max-width: 1530px) {
+@media (max-width: 1540px) {
 
     .parent {
         >.top {

@@ -1,7 +1,7 @@
 @use '../../mixin' as mixin;
 
 .parent {
-    margin-top: 743px;
+    margin-top: 800px;
     margin-inline: auto;
     max-width: 1746px;
     width: 90%;
@@ -29,12 +29,12 @@
     >span {
         text-align: center;
         position: absolute;
+        width: 90%;
         left: 50%;
         transform: translateX(-50%);
         top: -272px;
 
         >h1 {
-            text-wrap: nowrap;
             text-transform: uppercase;
             @include mixin.font(var(--white), var(--roboto), 100px, 900);
         }
@@ -154,6 +154,39 @@
 }
 
 
+@media (max-width: 1540px) {
+    .parent {
+        >span {
+            top: -342px;
+        }
+
+        .content {
+
+            >.comment {
+                padding: 127px 83px;
+                ;
+
+                >span {
+                    display: inline;
+                    position: absolute;
+                    top: 40px;
+                    left: 37px;
+                    scale: .65;
+
+                    >img:first-of-type {
+                        margin-right: 8.29px;
+                    }
+                }
+
+                >p {
+                    font-size: 28px;
+                }
+            }
+        }
+    }
+}
+
+
 
 @keyframes done {
     0% {
@@ -164,8 +197,8 @@
         transform: translate(-50%, -50%) scale(1.04);
     }
 
-    100%{
-       transform: translate(-50%, -50%) scale(1);
+    100% {
+        transform: translate(-50%, -50%) scale(1);
     }
 }
 

@@ -227,9 +227,49 @@
             }
         }
     }
-
-
 }
+
+
+@media (max-width: 1540px) {
+    .parent {
+        .container {
+            >.card {
+                width: 550px;
+
+                >div {
+                    transform: translateY(-55px);
+                    z-index: 2;
+
+                    >div {
+                        padding: 48px 62px;
+                    }
+                }
+            }
+
+            >.rodmap {
+                top: 681px;
+
+                >div {
+                    &:nth-of-type(1) {
+                        top: 37px;
+                        left: 516px;
+                    }
+
+                    &:nth-of-type(2) {
+                        top: 315px;
+                        left: 1130px;
+                    }
+
+                    &:nth-of-type(3) {
+                        top: 315px;
+                        left: 1729px;
+                    }
+                }
+            }
+        }
+    }
+}
+
 
 @media (max-width: 768px) {
     .parent {

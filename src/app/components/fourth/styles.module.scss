@@ -68,6 +68,43 @@
     }
 }
 
+@media (max-width: 1540px) {
+    .parent {
+        margin-top: 300px;
+
+        >h1 {transform: translateY();}
+        >.content {
+            align-items: end;
+
+            >.sidepart {
+                gap: 123px;
+                padding-right: 392px;
+                padding-bottom: 100px;
+
+                >h2 {
+                    font-size: 34px;
+                }
+
+                >button {
+
+                    &:nth-of-type(1) {
+                        font-size: 35px;
+                    }
+
+                    &:nth-of-type(2) {
+                        font-size: 25px;
+                    }
+                }
+
+            }
+
+            >img {
+                transform: translate(148px, 207px) scale(.7);
+            }
+        }
+    }
+}
+
 @media (max-width: 768px) {
     .parent {
         @include mixin.flex(center, center, column, nowrap, 0);
