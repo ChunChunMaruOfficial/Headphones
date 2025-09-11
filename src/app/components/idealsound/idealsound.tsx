@@ -27,7 +27,7 @@ export default function Idealsound({ ismobile }: { ismobile: boolean }) {
         visible: (custom: number) => ({
             opacity: 1,
             x: 0,
-            transition: { duration: .8, delay: (custom * 0.4) + .6 }
+            transition: { duration: .4, delay: (custom * 0.4) + .6 }
         }),
     }
 
