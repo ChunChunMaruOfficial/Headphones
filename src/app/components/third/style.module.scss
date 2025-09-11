@@ -8,7 +8,7 @@
 
     .top {
         @include mixin.flex(center, center, column, nowrap, 27px);
-        margin-block: 330px 93px;
+        margin-block: 70px 93px;
 
         >h1 {
             @include mixin.font(var(--white), var(--roboto), 100px, 900);
@@ -41,7 +41,7 @@
             &:nth-of-type(2) {
                 text-align: right;
                 right: 60px;
-                top: 709px;
+                top:  760px;
             }
         }
 
@@ -58,7 +58,7 @@
         position: absolute;
         left: 50%;
         top: 50%;
-        transform: translate(-50%, -33%);
+        transform: translate(-50%, -44%);
 
         >span>img:not(.arrow) {
             transform: scaleX(-1)
@@ -109,7 +109,7 @@
         }
 
         >.mainpng {
-            transform: translate(-50%, -33%) scale(.75);
+            transform: translate(-50%, -47%) scale(.75);
         }
     }
 }
@@ -140,7 +140,7 @@
             >p {
                 @include mixin.font(var(--white), var(--font-inclusive-sans), 12px);
                 position: absolute;
-                max-width: 240px;
+                
 
                 &:nth-of-type(1) {
                     max-width: 240px;
@@ -152,6 +152,8 @@
                 }
 
                 &:nth-of-type(2) {
+                    max-width: 240px;
+                    font-size: 12px;
                     text-align: right;
                     top: 619px;
                     left: 190px;

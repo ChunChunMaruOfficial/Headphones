@@ -207,7 +207,6 @@
                 border-radius: 100%;
                 position: absolute;
                 transform: scale(0);
-                animation: show .3s ease-in-out forwards .8s;
 
                 &:nth-of-type(1) {
                     top: 51px;
@@ -369,17 +368,17 @@
 
 
                     &:nth-of-type(1) {
-                        top: -181px;
+                        top: -33px;
                         left: 349px;
                     }
 
                     &:nth-of-type(2) {
-                        top: -181px;
+                        top: -33px;
                         left: 858px;
                     }
 
                     &:nth-of-type(3) {
-                        top: -181px;
+                        top: -33px;
                         left: 1359px;
                     }
                 }
@@ -387,15 +386,4 @@
 
         }
     }
-}
-
-@keyframes show {
-    from {
-        transform: scale(0);
-    }
-
-    to {
-        transform: scale(1);
-    }
-
 }

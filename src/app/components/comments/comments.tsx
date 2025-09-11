@@ -225,14 +225,14 @@ export default function Comments({ ismobile }: { ismobile: boolean }) {
               onClick={() => setStopped2(true)}>the best</motion.div>
           </div>
           <motion.div
-            initial={ismobile ? { x: '-30%', y: '250%' } : { x: '-180%', y: '130%' }}
+            initial={ismobile ? { x: '-30%', y: '250%' } : { x: '-160%', y: '130%' }}
             animate={
               s3
                 ? { x: 0, y: 0, rotate: 0 }
                 : {
                   y: ismobile ? ['250%', '238%', '250%'] : ['130%', '118%', '130%'],
                   rotate: [0, -3, 0, 2, 0],
-                  x: ismobile ? '-30%' : '-180%'
+                  x: ismobile ? '-30%' : '-160%'
                 }
             }
             transition={

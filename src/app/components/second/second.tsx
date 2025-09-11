@@ -26,6 +26,16 @@ const ShowAnimation = {
     }),
 }
 
+const ShowPoints = {
+    hidden: {
+        scale: 0,
+    },
+    visible: (custom: number) => ({
+        scale: 1,
+        transition: { delay: (custom * 0.4) + .45 }
+    }),
+}
+
 export default function Second({ ismobile }: { ismobile: boolean }) {
     return (
         <div className={styles.parent}>
@@ -58,7 +68,7 @@ export default function Second({ ismobile }: { ismobile: boolean }) {
 
 
                     {[...Array(3)].map((_, i) => (
-                        <div key={i}></div>
+                        <motion.div custom={i + 1} variants={ShowPoints} key={i}></motion.div>
                     ))}
                 </div>
             </motion.div>

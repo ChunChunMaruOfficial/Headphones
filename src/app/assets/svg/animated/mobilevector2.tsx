@@ -1,13 +1,17 @@
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useRef } from "react";
+import { motion, useInView } from "framer-motion";
 
 const Animatedmobilevector2 = () => {
+
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-20%" });
   return (
-    <svg 
-      viewBox="0 0 634.5 481" 
-      xmlns="http://www.w3.org/2000/svg" 
-      width="634.500000" 
-      height="481.000000" 
+    <svg
+      ref={ref}
+      viewBox="0 0 634.5 481"
+      xmlns="http://www.w3.org/2000/svg"
+      width="634.500000"
+      height="481.000000"
       fill="none"
     >
       <motion.path
@@ -17,7 +21,7 @@ const Animatedmobilevector2 = () => {
         strokeOpacity="0.5"
         strokeWidth="1"
         initial={{ pathLength: 0 }}
-        animate={{ pathLength: 1 }}
+        animate={{ pathLength: isInView ? 1 : 0 }}
         transition={{
           duration: 3,
           ease: "easeInOut"

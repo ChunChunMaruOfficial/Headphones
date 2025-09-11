@@ -1,7 +1,7 @@
 @use '../../mixin' as mixin;
 
 .parent {
-    margin-top: 252px;
+    margin-top: 302px;
     position: relative;
     background: conic-gradient(from -8deg at 108% 53%,
             rgba(0, 0, 0, 1) 0deg,
@@ -70,9 +70,14 @@
 
 @media (max-width: 1540px) {
     .parent {
-        margin-top: 300px;
+        margin-top: 480px;
 
-        >h1 {transform: translateY();}
+        >h1 {
+            position: absolute;
+            width: 100%;
+            max-width: none;
+        }
+
         >.content {
             align-items: end;
 
@@ -108,8 +113,10 @@
 @media (max-width: 768px) {
     .parent {
         @include mixin.flex(center, center, column, nowrap, 0);
+        margin-top: 302px;
 
         >h1 {
+            position: relative;
             font-size: 30px;
             max-width: none;
         }
@@ -123,7 +130,7 @@
                 @include mixin.flex(center, center, row, wrap, 20px);
                 width: 100%;
                 margin-bottom: 82px;
-
+padding-bottom: 0;
                 >h2 {
                     @include mixin.font(var(--white), var(--font-inclusive-sans), 15px);
                     text-align: left;

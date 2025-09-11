@@ -32,7 +32,7 @@
         width: 90%;
         left: 50%;
         transform: translateX(-50%);
-        top: -272px;
+       top: -342px;
 
         >h1 {
             text-transform: uppercase;
@@ -154,7 +154,7 @@
 }
 
 
-@media (max-width: 1540px) {
+@media (max-width: 1550px) {
     .parent {
         >span {
             top: -342px;

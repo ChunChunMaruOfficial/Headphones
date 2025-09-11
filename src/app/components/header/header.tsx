@@ -13,7 +13,7 @@ export default function Header() {
         if (!element) return;
 
         const rect = element.getBoundingClientRect();
-        const targetY = window.scrollY + rect.top + 50;
+        const targetY = window.scrollY + rect.top - 100;
 
         const currentY = window.scrollY;
 
